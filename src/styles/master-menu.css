@@ -1,0 +1,546 @@
+/* MasterMenuPage.css - Luxury Dark Gold Theme for Ayushyachi Photography */
+
+.master-setup-container {
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: #E0E0E0;
+}
+
+@media (min-width: 640px) {
+  .master-setup-container {
+    padding: 2rem;
+  }
+}
+
+/* Welcome Hero Banner: Dark Gold Luxury */
+.mm-welcome-hero {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  border: 1px solid rgba(255, 198, 41, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 198, 41, 0.08);
+}
+
+.mm-welcome-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    #1C1917 0%,
+    #2A200B 35%,
+    #17140B 70%,
+    #0F0E04 100%
+  );
+  background-size: 300% 300%;
+  animation: mm-bg-drift 8s ease infinite;
+}
+
+@keyframes mm-bg-drift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.mm-welcome-content {
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .mm-welcome-content {
+    padding: 3rem 3.5rem;
+  }
+}
+
+.mm-welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 198, 41, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 198, 41, 0.35);
+  border-radius: 100px;
+  color: #FFC629;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.mm-welcome-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.mm-welcome-highlight {
+  color: #FFC629;
+  background: rgba(255, 198, 41, 0.15);
+  border-radius: 8px;
+  padding: 0.1em 0.35em;
+  border: 1px solid rgba(255, 198, 41, 0.3);
+}
+
+.mm-welcome-sub {
+  font-size: 0.95rem;
+  color: #C0C0C0;
+  line-height: 1.65;
+  max-width: 640px;
+  margin: 0;
+}
+
+.mm-welcome-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.mm-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.9rem;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: rgba(255, 198, 41, 0.1);
+  color: #FFC629;
+  border: 1px solid rgba(255, 198, 41, 0.25);
+  cursor: default;
+}
+
+/* Header Section */
+.master-setup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  background: #141414;
+  border: 1px solid #262626;
+  border-radius: 20px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.header-text h1 {
+  font-family: 'Cinzel', serif;
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #FFC629;
+  margin-bottom: 0.5rem;
+}
+
+.header-text p {
+  font-size: 0.92rem;
+  color: #F5E6BE;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0;
+  font-weight: 500;
+}
+
+.refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #1A1A1A;
+  color: #FFC629;
+  border: 1.5px solid rgba(255, 198, 41, 0.3);
+  padding: 0.65rem 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.refresh-btn:hover {
+  background: #242424;
+  border-color: #FFC629;
+  transform: translateY(-1px);
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Progress Card */
+.master-setup-progress-card {
+  background: #141414;
+  border: 1px solid #262626;
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #FFC629;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-val {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.percent-val {
+  color: #FFC629;
+}
+
+.progress-bar-wrapper {
+  width: 100%;
+  height: 10px;
+  background: #222222;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FFC629, #FFB703);
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+/* Steps Grid */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.5rem;
+}
+
+.step-card {
+  background: #141414;
+  border: 1px solid #262626;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.step-card.card-active:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 198, 41, 0.45);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 198, 41, 0.1);
+}
+
+.step-card.card-locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.step-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.step-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #FFC629;
+  background: rgba(255, 198, 41, 0.12);
+  border: 1px solid rgba(255, 198, 41, 0.25);
+  padding: 0.25rem 0.65rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+.status-badge.badge-completed {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-badge.badge-ready {
+  background: rgba(255, 198, 41, 0.15);
+  color: #FFC629;
+  border: 1px solid rgba(255, 198, 41, 0.3);
+}
+
+.status-badge.badge-locked {
+  background: #1A1A1A;
+  color: #777777;
+  border: 1px solid #262626;
+}
+
+.step-card-body {
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.step-icon-wrapper {
+  font-size: 2rem;
+  color: #FFC629;
+  margin-bottom: 0.75rem;
+}
+
+.step-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFC629;
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: #F5E6BE;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.count-badge {
+  font-size: 0.75rem;
+  color: #34d399;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.prereq-warning {
+  font-size: 0.75rem;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.step-card-footer {
+  margin-top: auto;
+}
+
+.action-btn {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-ready {
+  background: linear-gradient(135deg, #FFC629, #FFB703);
+  color: #000;
+  box-shadow: 0 4px 14px rgba(255, 198, 41, 0.2);
+}
+
+.btn-ready:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255, 198, 41, 0.35);
+}
+
+.btn-completed {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.btn-completed:hover {
+  background: rgba(16, 185, 129, 0.2);
+}
+
+.btn-locked {
+  background: #1A1A1A;
+  color: #666666;
+  border: 1px solid #262626;
+  cursor: not-allowed;
+}
+
+/* Modals */
+.premium-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.premium-modal-card {
+  background: #141414;
+  border: 1px solid #262626;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  color: #FFFFFF;
+}
+
+.modal-header-gradient {
+  background: linear-gradient(135deg, #1C1917, #2A200B);
+  border: 1px solid rgba(255, 198, 41, 0.3);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFC629;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.modal-header-subtitle {
+  font-size: 0.8rem;
+  color: #A0A0A0;
+  margin-top: 0.25rem;
+}
+
+.modal-form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-item-wrapper label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #CCCCCC;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.form-item-wrapper input,
+.form-item-wrapper select {
+  width: 100%;
+  height: 48px;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: #101010;
+  border: 1px solid #303030;
+  color: #FFFFFF;
+  outline: none;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.form-item-wrapper input:focus,
+.form-item-wrapper select:focus {
+  border-color: #FFC629;
+  box-shadow: 0 0 0 3px rgba(255, 198, 41, 0.2);
+}
+
+.btn-glowing-primary {
+  background: linear-gradient(135deg, #FFC629, #FFB703);
+  color: #000;
+  font-weight: 800;
+  border-radius: 12px;
+  height: 48px;
+  border: none;
+  cursor: pointer;
+  padding: 0 1.5rem;
+  transition: all 0.2s;
+}
+
+.btn-glowing-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(255, 198, 41, 0.35);
+}
+
+.btn-outline {
+  background: #1A1A1A;
+  border: 1px solid #333333;
+  color: #CCCCCC;
+  border-radius: 12px;
+  height: 48px;
+  padding: 0 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: #242424;
+  color: #FFFFFF;
+}
+
+.modal-action-row {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.toast-success-banner {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #34d399;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
