@@ -37,7 +37,6 @@ import StudyMaterial from "./pages/admin/StudyMaterial";
 import FeeCollection from "./pages/admin/FeeCollection";
 import TeacherPayment from "./pages/admin/TeacherPayment";
 import LeaveManagement from "./pages/admin/LeaveManagement";
-import SubscriptionPlan from "./pages/admin/SubscriptionPlan";
 import Ticket from "./pages/admin/Ticket";
 import TeacherLayout from "./components/layouts/TeacherLayout";
 import TeacherDashboard from "./pages/teacher/Dashboard";
@@ -132,13 +131,12 @@ function App() {
             <Route path="timetable" element={<MasterSetupGuard step={9}><Timetable /></MasterSetupGuard>} />
             <Route path="settings" element={<Settings />} />
             <Route path="users" element={<UserManagement />} />
-            <Route path="live-lecture" element={<SubscriptionGuard feature="live-lectures"><LiveLecture /></SubscriptionGuard>} />
+            <Route path="live-lecture" element={<LiveLecture />} />
             <Route path="fee-collection" element={<MasterSetupGuard step={12}><FeeCollection /></MasterSetupGuard>} />
             <Route path="teacher-payment" element={<TeacherPayment />} />
             <Route path="leave-management" element={<LeaveManagement />} />
-            <Route path="subscription-plan" element={<SubscriptionPlan />} />
             <Route path="ticket" element={<Ticket />} />
-            <Route path="recorded-lecture" element={<SubscriptionGuard feature="recorded-lectures"><RecordedLecture /></SubscriptionGuard>} />
+            <Route path="recorded-lecture" element={<RecordedLecture />} />
             <Route path="syllabus" element={<Syllabus />} />
             <Route path="study-material" element={<StudyMaterial />} />
             <Route path="classes" element={<MasterSetupGuard step={2}><Classes /></MasterSetupGuard>} />
@@ -168,13 +166,12 @@ function App() {
             <Route path="timetable" element={<MasterSetupGuard step={9}><Timetable /></MasterSetupGuard>} />
             <Route path="settings" element={<Settings />} />
             <Route path="users" element={<UserManagement />} />
-            <Route path="live-lecture" element={<SubscriptionGuard feature="live-lectures"><LiveLecture /></SubscriptionGuard>} />
+            <Route path="live-lecture" element={<LiveLecture />} />
             <Route path="fee-collection" element={<MasterSetupGuard step={12}><FeeCollection /></MasterSetupGuard>} />
             <Route path="teacher-payment" element={<TeacherPayment />} />
             <Route path="leave-management" element={<LeaveManagement />} />
-            <Route path="subscription-plan" element={<SubscriptionPlan />} />
             <Route path="ticket" element={<Ticket />} />
-            <Route path="recorded-lecture" element={<SubscriptionGuard feature="recorded-lectures"><RecordedLecture /></SubscriptionGuard>} />
+            <Route path="recorded-lecture" element={<RecordedLecture />} />
             <Route path="syllabus" element={<Syllabus />} />
             <Route path="study-material" element={<StudyMaterial />} />
             <Route path="classes" element={<MasterSetupGuard step={2}><Classes /></MasterSetupGuard>} />

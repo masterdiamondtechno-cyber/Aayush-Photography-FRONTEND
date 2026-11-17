@@ -6,8 +6,6 @@ import {
 } from 'react-icons/bi';
 import { logout } from '../../api/api';
 import { clearAuthStorage, isAuthenticated, getDashboardURL } from '../../utils/auth';
-import { hasSubscriptionFeature, isSubscriptionExpired } from '../../utils/subscription';
-import SubscriptionGuard from '../common/SubscriptionGuard';
 import { StudentSearchProvider, useStudentSearch } from '../../contexts/StudentSearchContext';
 
 const getInitials = (name) => {
@@ -224,11 +222,7 @@ const StudentLayoutInner = () => {
         </header>
 
         <main className="mx-auto w-full max-w-[1400px] flex-1 min-w-0 overflow-x-hidden px-4 py-5 sm:px-6 sm:py-6 lg:px-10 lg:py-10">
-          {isSubscriptionExpired() ? (
-            <SubscriptionGuard feature="trial-expired-gate" />
-          ) : (
-            <Outlet />
-          )}
+          <Outlet />
         </main>
       </div>
     </div>

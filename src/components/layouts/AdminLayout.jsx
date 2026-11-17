@@ -4,9 +4,7 @@ import Sidebar from '../Sidebar';
 import { clearAuthStorage, getAuthValue, isAuthenticated, getDashboardURL } from '../../utils/auth';
 import { logout, getSchoolById } from '../../api/api';
 import GlobalYearSelector from './GlobalYearSelector';
-import { isSubscriptionExpired } from '../../utils/subscription';
-import SubscriptionGuard from '../common/SubscriptionGuard';
-import { BiWrench, BiX, BiChevronRight, BiCrown, BiMenu } from 'react-icons/bi';
+import { BiWrench, BiX, BiChevronRight, BiMenu } from 'react-icons/bi';
 
 /**
  * AdminLayout component
@@ -178,12 +176,6 @@ const AdminLayout = () => {
               </h2>
             </div>
             <div className="flex items-center gap-2 shrink-0">
-              <Link
-                to={`/${userRole}/subscription-plan`}
-                className="flex items-center gap-1.5 bg-gradient-to-r from-[#FFC629] to-[#FFB703] text-black font-bold shadow-md shadow-[#FFC629]/20 hover:brightness-110 px-3 py-1.5 rounded-lg font-semibold text-xs transition"
-              >
-                <BiCrown size={13} /> <span className="hidden sm:inline">Upgrade</span>
-              </Link>
               <GlobalYearSelector />
             </div>
           </div>
@@ -221,11 +213,7 @@ const AdminLayout = () => {
         )}
 
         <main className="flex-1 min-w-0 px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7 pb-28 overflow-x-hidden">
-          {isSubscriptionExpired() && !location.pathname.includes('/subscription-plan') ? (
-            <SubscriptionGuard feature="trial-expired-gate" />
-          ) : (
-            <Outlet />
-          )}
+          <Outlet />
         </main>
 
         {/* Sticky Wizard Navigation Bar */}

@@ -86,8 +86,7 @@ const Settings = () => {
     state: '',
     district: '',
     taluka: '',
-    pincode: '',
-    subscriptionStatus: 'ACTIVE'
+    pincode: ''
   });
 
   const [passwordForm, setPasswordForm] = useState({
@@ -138,8 +137,7 @@ const Settings = () => {
           state: data.state || '',
           district: data.district || '',
           taluka: data.taluka || '',
-          pincode: data.pincode || '',
-          subscriptionStatus: data.subscriptionStatus || 'ACTIVE'
+          pincode: data.pincode || ''
         });
         if (data.schoolLogo) {
           setLogoPreview(data.schoolLogo);
@@ -175,8 +173,7 @@ const Settings = () => {
         state: schoolData.state || '',
         district: schoolData.district || '',
         taluka: schoolData.taluka || '',
-        pincode: schoolData.pincode || '',
-        subscriptionStatus: schoolData.subscriptionStatus || 'ACTIVE'
+        pincode: schoolData.pincode || ''
       });
       setLogoPreview(schoolData.schoolLogo || '');
     }
@@ -215,7 +212,6 @@ const Settings = () => {
       formDataObj.append('district', profileForm.district);
       formDataObj.append('taluka', profileForm.taluka);
       formDataObj.append('pincode', profileForm.pincode);
-      formDataObj.append('subscriptionStatus', profileForm.subscriptionStatus);
       
       if (logoFile) {
         formDataObj.append('schoolLogo', logoFile);
@@ -528,15 +524,6 @@ const Settings = () => {
                           disabled={!isEditingProfile}
                           required
                         />
-                      </div>
-
-                      <div className="form-item-wrapper">
-                        <label>Subscription Status</label>
-                        <div className="read-only-badge-input">
-                          <span className={`status-text-pill ${profileForm.subscriptionStatus?.toLowerCase()}`}>
-                            {profileForm.subscriptionStatus || 'ACTIVE'}
-                          </span>
-                        </div>
                       </div>
                     </div>
 

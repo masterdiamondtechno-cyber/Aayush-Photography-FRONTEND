@@ -34,8 +34,8 @@ const ActiveInstituteChecker = () => {
     // Run immediately on mount
     checkStatus();
 
-    // Poll every 1.5 seconds for immediate logout detection
-    intervalId = setInterval(checkStatus, 1500);
+    // Poll every 60 seconds (reduced from aggressive 1.5s) to avoid network spam
+    intervalId = setInterval(checkStatus, 60000);
 
     // Also check immediately when the tab gets focused
     const handleFocus = () => {

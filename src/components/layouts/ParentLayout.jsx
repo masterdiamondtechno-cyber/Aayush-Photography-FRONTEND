@@ -4,8 +4,6 @@ import Sidebar from '../Sidebar';
 import { clearAuthStorage, isAuthenticated, getDashboardURL } from '../../utils/auth';
 import { PARENT_SIDEBAR_LINKS } from '../../data/mockData';
 import { BiSearch, BiMenu } from 'react-icons/bi';
-import { isSubscriptionExpired } from '../../utils/subscription';
-import SubscriptionGuard from '../common/SubscriptionGuard';
 
 
 const ParentLayout = () => {
@@ -89,11 +87,7 @@ const ParentLayout = () => {
           </div>
         </header>
         <main className="mx-auto w-full max-w-[1400px] flex-1 min-w-0 overflow-x-auto px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
-          {isSubscriptionExpired() ? (
-            <SubscriptionGuard feature="trial-expired-gate" />
-          ) : (
-            <Outlet />
-          )}
+          <Outlet />
         </main>
       </div>
     </div>
