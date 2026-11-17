@@ -75,7 +75,6 @@ import ClassPage from "./pages/admin/ClassPage";
 
 import EmployeePage from "./pages/admin/EmployeePage";
 import TeacherLeave from "./pages/teacher/TeacherLeave";
-import ActiveInstituteChecker from "./components/common/ActiveInstituteChecker";
 import ErrorBoundary from "./components/common/ErrorBoundary";
 
 /**
@@ -86,7 +85,6 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        <ActiveInstituteChecker />
         <ErrorBoundary>
           <Routes>
             {/* Public Routes - Ayushyachi Photography */}

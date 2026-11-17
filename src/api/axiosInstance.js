@@ -69,10 +69,7 @@ axiosInstance.interceptors.response.use(
     console.groupEnd();
 
     const data = response.data;
-    if (
-      response.config.skipEnvelopeValidation ||
-      response.config.url?.split('?')[0].replace(/\/+$/, '').endsWith('/api/auth/check-status')
-    ) {
+    if (response.config.skipEnvelopeValidation) {
       return data;
     }
 
