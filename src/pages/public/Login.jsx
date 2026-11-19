@@ -308,23 +308,7 @@ const Login = () => {
                 <span className="block mt-3 font-semibold text-[#FFC629] not-italic text-xs tracking-wider">— तुषार पुलाटे</span>
               </div>
 
-              <div className="mt-10 flex items-center justify-center gap-5 text-xs font-semibold text-[#D4D4D8]">
-                <Link to="/" className="hover:text-[#FFC629] transition hover:underline">
-                  Home
-                </Link>
-                <span>•</span>
-                <Link to="/about" className="hover:text-[#FFC629] transition hover:underline">
-                  About
-                </Link>
-                <span>•</span>
-                <Link to="/courses" className="hover:text-[#FFC629] transition hover:underline">
-                  Courses
-                </Link>
-                <span>•</span>
-                <Link to="/contact" className="hover:text-[#FFC629] transition hover:underline">
-                  Contact
-                </Link>
-              </div>
+
             </div>
           </div>
 
