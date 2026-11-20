@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import Navbar from '../photography/Navbar';
 import Footer from '../photography/Footer';
 import { LanguageProvider } from '../../context/LanguageContext';
 import '../../styles/photography.css';
@@ -29,10 +28,7 @@ const PublicLayoutInner = () => {
         </div>
       ) : (
         <div className="site-app min-h-screen bg-[#090909] text-white flex flex-col">
-          {/* Top Full-Width Navbar for Public Website Pages (No sidebar) */}
-          <Navbar />
-
-          {/* Main Page Viewport — Full Width */}
+          {/* Main Page Viewport — Full Width without navbar or sidebar */}
           <main className="main-viewport flex-1 w-full min-w-0">
             <Outlet />
           </main>
@@ -47,8 +43,7 @@ const PublicLayoutInner = () => {
 
 /**
  * PublicLayout component for आयुष्याची फोटोग्राफी
- * Wraps public website pages (Home, About, Courses, Facilities, Gallery, FAQ, Contact)
- * with the full-width navbar and footer, without any sidebar.
+ * Renders page content at full width without navbar or sidebar.
  */
 const PublicLayout = () => {
   return (
