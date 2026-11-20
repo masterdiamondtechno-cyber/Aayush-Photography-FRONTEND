@@ -71,7 +71,7 @@ const StudentProfileModal = ({ profile, onClose }) => {
             <div className="info-item-row">
               <div className="info-item-icon"><BiIdCard /></div>
               <div className="info-item-content">
-                <span className="label">Student ID / Roll No</span>
+                <span className="label">Student ID</span>
                 <span className="value">{profile.studentId || profile.rollNo || 'STU-2026-001'}</span>
               </div>
             </div>

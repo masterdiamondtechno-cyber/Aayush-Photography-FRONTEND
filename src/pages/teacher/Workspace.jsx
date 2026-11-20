@@ -340,7 +340,7 @@ const TeacherWorkspace = () => {
           return {
             ...sub,
             studentName: `${student.firstName} ${student.lastName}`,
-            rollNumber: student.rollNumber
+            rollNumber: student.studentId || student.rollNumber
           };
         } else {
           // If no submission row exists, status is "UNOPENED"
@@ -348,7 +348,7 @@ const TeacherWorkspace = () => {
             id: `unopened-${student.id}`,
             studentId: student.id,
             studentName: `${student.firstName} ${student.lastName}`,
-            rollNumber: student.rollNumber,
+            rollNumber: student.studentId || student.rollNumber,
             submissionDate: null,
             fileUrl: null,
             marks: null,
@@ -1058,9 +1058,9 @@ const TeacherWorkspace = () => {
                                     <span style={{ fontSize: '13px', fontWeight: isChecked ? '600' : '500', color: isChecked ? '#2563eb' : '#334155' }}>
                                       {student.firstName} {student.lastName}
                                     </span>
-                                    {student.rollNumber && (
+                                    {(student.studentId || student.rollNumber) && (
                                       <span style={{ marginLeft: 'auto', fontSize: '11px', color: '#94a3b8', background: '#f8fafc', padding: '2px 6px', borderRadius: '4px' }}>
-                                        Roll: {student.rollNumber}
+                                        ID: {student.studentId || student.rollNumber}
                                       </span>
                                     )}
                                   </div>

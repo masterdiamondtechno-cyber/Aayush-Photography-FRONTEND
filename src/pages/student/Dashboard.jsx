@@ -325,7 +325,7 @@ const StudentDashboard = () => {
               dob: studentInfo.dateOfBirth || '',
               address: studentInfo.address || '',
               studentId: studentInfo.studentId || '',
-              rollNo: studentInfo.rollNumber || '',
+              rollNo: studentInfo.studentId || '',
               standardName: studentInfo.standardName || '',
               divisionName: studentInfo.divisionName || '',
               guardianName: studentInfo.guardianName || '',

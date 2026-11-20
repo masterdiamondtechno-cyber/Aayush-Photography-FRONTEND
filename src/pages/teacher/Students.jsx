@@ -175,7 +175,6 @@ const Students = () => {
       (s) =>
         (s.name || s.studentName || "").toLowerCase().includes(q) ||
         (s.studentId || s.id || "").toString().toLowerCase().includes(q) ||
-        (s.rollNumber || "").toString().toLowerCase().includes(q) ||
         (s.aadharNumber || "").toString().toLowerCase().includes(q)
     );
   }, [students, searchQuery]);
@@ -226,7 +225,6 @@ const Students = () => {
               <h2>{[selectedStudent.firstName, selectedStudent.middleName, selectedStudent.lastName].filter(Boolean).join(' ') || selectedStudent.name || selectedStudent.studentName}</h2>
               <p className="student-detail-id">
                 ID: {selectedStudent.studentId || selectedStudent.id}
-                {selectedStudent.rollNumber && ` • Roll: ${selectedStudent.rollNumber}`}
               </p>
             </div>
           </div>
@@ -377,7 +375,7 @@ const Students = () => {
           <table className="data-table">
             <thead>
               <tr>
-                <th>Roll No</th>
+                <th>Student ID</th>
                 <th>Student Name</th>
                 <th>Class</th>
                 <th>Gender</th>
@@ -396,7 +394,7 @@ const Students = () => {
                   <tr key={student.studentId || student.id || index} className="student-row">
                     <td>
                       <span className="badge badge-outline">
-                        {student.rollNumber || student.studentId || student.id || "-"}
+                        {student.studentId || student.id || "-"}
                       </span>
                     </td>
                     <td>

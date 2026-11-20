@@ -210,7 +210,6 @@ function App() {
             <Route path="profile" element={<StudentProfile />} />
             <Route path="live-lecture" element={<SubscriptionGuard feature="live-lectures"><StudentLiveLecture /></SubscriptionGuard>} />
             <Route path="recorded-lecture" element={<SubscriptionGuard feature="recorded-lectures"><StudentRecordedLecture /></SubscriptionGuard>} />
-            <Route path="bus-tracking" element={<SubscriptionGuard feature="bus-tracking"><StudentBusTracking /></SubscriptionGuard>} />
             <Route path="leave" element={<StudentLeave />} />
           </Route>
         </Routes>

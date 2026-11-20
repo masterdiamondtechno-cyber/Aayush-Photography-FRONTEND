@@ -178,14 +178,12 @@ const UserManagement = () => {
     const phone = (user.phone || user.mobileNumber || '').toLowerCase();
     const role = (user.userType || user.role || '').toLowerCase();
     const studentId = (user.studentId || '').toLowerCase();
-    const prnNumber = (user.prnNumber || '').toLowerCase();
 
     return name.includes(term) ||
       email.includes(term) ||
       phone.includes(term) ||
       role.includes(term) ||
-      studentId.includes(term) ||
-      prnNumber.includes(term);
+      studentId.includes(term);
   });
 
   const getUserName = (user) => user.name || user.teacherName || `${user.firstName || ''} ${user.lastName || ''}`.trim();
@@ -686,8 +684,8 @@ const UserManagement = () => {
                             <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.divisionName || 'Division ID: ' + (viewingProfile.divisionId || 'Unassigned')}</span>
                           </div>
                           <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '4px' }}>
-                            <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Roll call roll No.</span>
-                            <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.rollNumber || 'Unassigned'}</span>
+                            <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Student ID</span>
+                            <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600, fontFamily: 'monospace' }}>{viewingProfile.studentId || ('#' + viewingProfile.id)}</span>
                           </div>
                           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Admission Date</span>
@@ -711,10 +709,6 @@ const UserManagement = () => {
                               <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Emergency Contact</span>
                               <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.parentMobileNumber || 'Not specified'}</span>
                             </div>
-                          </div>
-                          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                            <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Emergency Correspondence Email</span>
-                            <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.parentEmailId || 'None registered'}</span>
                           </div>
                         </div>
                       </div>

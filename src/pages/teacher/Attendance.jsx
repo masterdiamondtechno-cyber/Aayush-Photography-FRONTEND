@@ -162,7 +162,6 @@ const Attendance = () => {
             id: s.id,
             studentIdString: s.studentId || `ST-${s.id}`,
             name: fullName,
-            roll: s.rollNumber || 'N/A',
             avatar: initials || 'ST',
             status: attRecord ? attRecord.status : null, // 'PRESENT', 'ABSENT', 'LATE'
             attendanceId: attRecord ? attRecord.attendanceId : null
@@ -376,7 +375,7 @@ const Attendance = () => {
             <BiSearch />
             <input 
               type="text" 
-              placeholder="Search student name or roll..." 
+              placeholder="Search student name or ID..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -492,7 +491,7 @@ const Attendance = () => {
                     </div>
                     <div className="student-meta">
                       <h4>{student.name}</h4>
-                      <span className="roll-no">Roll: {student.roll} • {student.studentIdString}</span>
+                      <span className="roll-no">ID: {student.studentIdString}</span>
                     </div>
                   </div>
                   

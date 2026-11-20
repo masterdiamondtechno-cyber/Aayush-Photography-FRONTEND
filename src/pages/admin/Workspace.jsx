@@ -78,14 +78,14 @@ const AdminWorkspace = () => {
           return {
             ...sub,
             studentName: `${student.firstName} ${student.lastName}`,
-            rollNumber: student.rollNumber
+            rollNumber: student.studentId || student.rollNumber
           };
         } else {
           return {
             id: `unopened-${student.id}`,
             studentId: student.id,
             studentName: `${student.firstName} ${student.lastName}`,
-            rollNumber: student.rollNumber,
+            rollNumber: student.studentId || student.rollNumber,
             submissionDate: null,
             fileUrl: null,
             marks: null,
@@ -348,7 +348,7 @@ const AdminWorkspace = () => {
                           </div>
                           <div style={{ textAlign: 'left' }}>
                             <strong style={{ color: '#334155' }}>{student.studentName}</strong>
-                            {student.rollNumber && <span style={{ fontSize: '11px', color: '#94a3b8', marginLeft: '6px' }}>(Roll: {student.rollNumber})</span>}
+                            {student.rollNumber && <span style={{ fontSize: '11px', color: '#94a3b8', marginLeft: '6px' }}>(ID: {student.rollNumber})</span>}
                           </div>
                         </div>
 

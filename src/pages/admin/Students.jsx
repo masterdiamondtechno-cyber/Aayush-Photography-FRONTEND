@@ -124,10 +124,7 @@ const Students = () => {
     emailId: '',
     guardianName: '',
     parentMobileNumber: '',
-    parentEmailId: '',
     admissionDate: new Date().toISOString().split('T')[0],
-    prnNumber: '',
-    rollNumber: '',
     standardId: '',
     divisionId: '',
     feeType: 'REGULAR',
@@ -205,9 +202,9 @@ const Students = () => {
     const nameStr = s.firstName || s.lastName ? `${s.firstName || ''} ${s.lastName || ''}`.toLowerCase() : '';
     const emailStr = s.emailId ? s.emailId.toLowerCase() : '';
     const mobileStr = s.mobileNumber ? s.mobileNumber.toLowerCase() : '';
-    const prnStr = s.prnNumber ? s.prnNumber.toLowerCase() : '';
+    const studentIdStr = s.studentId ? s.studentId.toLowerCase() : '';
     
-    const matchesSearch = nameStr.includes(term) || emailStr.includes(term) || mobileStr.includes(term) || prnStr.includes(term);
+    const matchesSearch = nameStr.includes(term) || emailStr.includes(term) || mobileStr.includes(term) || studentIdStr.includes(term);
     const matchesStd = selectedStandard === 'All' || String(s.standardId) === String(selectedStandard);
     const matchesDiv = selectedDivision === 'All' || String(s.divisionId) === String(selectedDivision);
     const matchesStatus = statusFilter === 'All' || String(s.status || '').toUpperCase() === statusFilter.toUpperCase();
@@ -236,10 +233,7 @@ const Students = () => {
       emailId: student.emailId || '',
       guardianName: student.guardianName || '',
       parentMobileNumber: student.parentMobileNumber || '',
-      parentEmailId: student.parentEmailId || '',
       admissionDate: student.admissionDate || '',
-      prnNumber: student.prnNumber || '',
-      rollNumber: student.rollNumber || '',
       standardId: student.standardId || '',
       divisionId: student.divisionId || '',
       feeType: student.feeType || 'REGULAR',
@@ -327,19 +321,6 @@ const Students = () => {
       alert("Aadhar Number is compulsory");
       return;
     }
-    if (!formData.guardianName?.trim()) {
-      alert("Guardian Name is compulsory");
-      return;
-    }
-    if (!formData.parentMobileNumber?.trim()) {
-      alert("Guardian parent contact number is compulsory");
-      return;
-    }
-    if (!formData.parentEmailId?.trim()) {
-      alert("Guardian parent email ID is compulsory");
-      return;
-    }
-
     setActionLoading(true);
     try {
       const payload = {
@@ -354,12 +335,9 @@ const Students = () => {
         dateOfBirth: formData.dateOfBirth || null,
         mobileNumber: formData.mobileNumber?.trim() || null,
         emailId: formData.emailId?.trim() || null,
-        guardianName: formData.guardianName.trim(),
-        parentMobileNumber: formData.parentMobileNumber.trim(),
-        parentEmailId: formData.parentEmailId.trim(),
+        guardianName: formData.guardianName?.trim() || null,
+        parentMobileNumber: formData.parentMobileNumber?.trim() || null,
         admissionDate: formData.admissionDate || null,
-        prnNumber: formData.prnNumber || null,
-        rollNumber: formData.rollNumber || null,
         feeType: formData.feeType || 'REGULAR',
         totalFee: formData.totalFee ? Number(formData.totalFee) : null,
         discount: formData.discount ? Number(formData.discount) : null,
@@ -621,7 +599,7 @@ const Students = () => {
               <BiSearchAlt className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
               <input
                 type="text"
-                placeholder="Search PRN, name, or email..."
+                placeholder="Search student ID, name, or email..."
                 className="w-full rounded-xl border border-slate-200 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-700 outline-none placeholder:text-slate-400 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 sm:w-72"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -644,8 +622,7 @@ const Students = () => {
               headers={[
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', minWidth: '40px' }}>S.No.</div>,
                 'Student', 'Contact Info', 'Class & Section',
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', minWidth: '80px' }}>Roll No.</div>,
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', minWidth: '110px' }}>PRN</div>,
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', minWidth: '100px' }}>Student ID</div>,
                 /* Status Column Header with Dropdown Filter */
                 <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', minWidth: '100px' }}>
                   <button 
@@ -936,26 +913,11 @@ const Students = () => {
                     )}
                   </td>
 
-                  {/* Roll No */}
-                  <td style={{ textAlign: 'center', minWidth: '80px' }}>
-                    {student.rollNumber ? (
-                      <span style={{ background: '#f8fafc', border: '1px solid #e2e8f0', color: '#475569', fontWeight: 700, fontSize: '0.85rem', padding: '4px 10px', borderRadius: '8px', display: 'inline-block' }}>
-                        {student.rollNumber}
-                      </span>
-                    ) : (
-                      <span style={{ color: '#d1d5db' }}>—</span>
-                    )}
-                  </td>
-
-                  {/* PRN */}
-                  <td style={{ textAlign: 'center', minWidth: '110px' }}>
-                    {student.prnNumber ? (
-                      <span style={{ fontFamily: 'monospace', fontSize: '0.8rem', color: '#4b5563', background: '#f9fafb', border: '1px dashed #d1d5db', padding: '3px 8px', borderRadius: '6px', display: 'inline-block' }}>
-                        {student.prnNumber}
-                      </span>
-                    ) : (
-                      <span style={{ color: '#d1d5db', fontSize: '0.82rem' }}>Not assigned</span>
-                    )}
+                  {/* Student ID */}
+                  <td style={{ textAlign: 'center', minWidth: '100px' }}>
+                    <span style={{ fontFamily: 'monospace', fontSize: '0.82rem', fontWeight: 700, color: '#334155', background: '#f8fafc', border: '1px solid #e2e8f0', padding: '4px 10px', borderRadius: '8px', display: 'inline-block' }}>
+                      {student.studentId || `#${student.id}`}
+                    </span>
                   </td>
 
                   {/* Status */}
@@ -1097,10 +1059,6 @@ const Students = () => {
                         <label>Admission Date</label>
                         <input type="date" name="admissionDate" className="form-control" value={formData.admissionDate} onChange={handleInputChange} onClick={(e) => { try { e.target.showPicker(); } catch (err) {} }} />
                       </div>
-                      <div className="form-group">
-                        <label>PRN Registration Number</label>
-                        <input type="text" name="prnNumber" className="form-control" placeholder="Permanent Registration ID" value={formData.prnNumber} onChange={handleInputChange} />
-                      </div>
                     </div>
                   </div>
                 )}
@@ -1110,17 +1068,13 @@ const Students = () => {
                   <div className="form-step slide-in">
                     <h4 className="form-section-title"><BiIdCard /> Emergency & Guardian details</h4>
                     <div className="grid grid-2 gap-1 mb-1">
-                      <div className="form-group" style={{ gridColumn: 'span 2' }}>
-                        <label>Guardian / Parent Name *</label>
-                        <input type="text" name="guardianName" className="form-control" placeholder="Full name of Father or Mother" value={formData.guardianName} onChange={handleInputChange} required />
+                      <div className="form-group">
+                        <label>Guardian / Parent Name</label>
+                        <input type="text" name="guardianName" className="form-control" placeholder="Guardian / Parent Name" value={formData.guardianName} onChange={handleInputChange} />
                       </div>
                       <div className="form-group">
-                        <label>Parent Contact Number *</label>
-                        <input type="tel" name="parentMobileNumber" className="form-control" placeholder="Primary parent mobile" value={formData.parentMobileNumber} onChange={handleInputChange} required maxLength={10} />
-                      </div>
-                      <div className="form-group">
-                        <label>Parent Email ID *</label>
-                        <input type="email" name="parentEmailId" className="form-control" placeholder="parent@example.com" value={formData.parentEmailId} onChange={handleInputChange} required />
+                        <label>Parent Contact Number</label>
+                        <input type="tel" name="parentMobileNumber" className="form-control" placeholder="Primary contact mobile" value={formData.parentMobileNumber} onChange={handleInputChange} maxLength={10} />
                       </div>
                       <div className="form-group" style={{ gridColumn: 'span 2' }}>
                         <label>Residential Address</label>
@@ -1152,10 +1106,6 @@ const Students = () => {
                             <option key={d.divisionId || d.id} value={d.divisionId || d.id}>{d.divisionName || d.name}</option>
                           ))}
                         </select>
-                      </div>
-                      <div className="form-group">
-                        <label>Class Roll Number</label>
-                        <input type="text" name="rollNumber" className="form-control" placeholder="Roll call reference" value={formData.rollNumber} onChange={handleInputChange} />
                       </div>
                       <div className="form-group">
                         <label>Fee Plan Type</label>
@@ -1241,9 +1191,9 @@ const Students = () => {
                       <span style={{ background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(4px)', color: 'white', padding: '3px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 600 }}>
                         ID: #{viewingProfile.id}
                       </span>
-                      {viewingProfile.prnNumber && (
+                      {viewingProfile.studentId && (
                         <span style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(4px)', color: 'rgba(255,255,255,0.9)', padding: '3px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 500, fontFamily: 'monospace' }}>
-                          PRN: {viewingProfile.prnNumber}
+                          ID: {viewingProfile.studentId}
                         </span>
                       )}
                     </div>
@@ -1312,8 +1262,8 @@ const Students = () => {
                     <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.divisionName || 'Unassigned'}</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '4px' }}>
-                    <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Roll Call Number</span>
-                    <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.rollNumber || 'Unassigned'}</span>
+                    <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Student ID</span>
+                    <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600, fontFamily: 'monospace' }}>{viewingProfile.studentId || (`#${viewingProfile.id}`)}</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '4px' }}>
                     <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Admission Date</span>
@@ -1341,12 +1291,8 @@ const Students = () => {
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '4px' }}>
                       <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Contact Number</span>
-                      <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.parentMobileNumber}</span>
+                      <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.parentMobileNumber || 'N/A'}</span>
                     </div>
-                  </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Guardian Correspondence Email</span>
-                    <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.parentEmailId || 'None registered'}</span>
                   </div>
                 </div>
               </div>

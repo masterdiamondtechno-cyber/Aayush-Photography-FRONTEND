@@ -57,7 +57,7 @@ const Profile = () => {
             ].filter(row => !searchLower || row.label.toLowerCase().includes(searchLower) || String(row.value).toLowerCase().includes(searchLower));
 
             const academicRows = [
-              { label: 'Student ID / Roll No', value: profile.studentId || profile.rollNo || 'STU-2026-001', icon: <BiIdCard /> },
+              { label: 'Student ID', value: profile.studentId || profile.rollNo || 'STU-2026-001', icon: <BiIdCard /> },
               { label: 'Standard & Division', value: `${profile.standardName} - ${profile.divisionName}`, icon: <BiBookmark /> },
               { label: 'Parent / Guardian', value: profile.guardianName || 'Mr. Robert Fox', icon: <BiGroup /> },
               { label: 'Admission Date', value: profile.admissionDate || 'June 12, 2024', icon: <BiCalendar /> }

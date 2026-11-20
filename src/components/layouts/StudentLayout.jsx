@@ -25,7 +25,6 @@ const NAV_ITEMS = [
   { to: '/student/examination', label: 'Exams', icon: BiBookOpen },
   { to: '/student/live-lecture', label: 'Live Lecture', icon: BiVideo, feature: 'live-lectures' },
   { to: '/student/recorded-lecture', label: 'Recorded Lectures', icon: BiPlayCircle, feature: 'recorded-lectures' },
-  { to: '/student/bus-tracking', label: 'Bus Tracking', icon: BiBus, feature: 'bus-tracking' },
   { to: '/student/workspace', label: 'Workspace', icon: BiVideo },
   { to: '/student/leave', label: 'Leave', icon: BiCalendarCheck },
   { to: '/student/profile', label: 'Profile', icon: BiUser },
