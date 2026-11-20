@@ -18,7 +18,6 @@ export const ADMIN_SIDEBAR_LINKS = [
   // 🔥 FIXED PART
   { path: '/admin/master-menu', label: 'Master Menu', icon: BiGridSmall },
   { path: '/admin/student', label: 'Student', icon: BiGroup },
-  { path: '/admin/promotion', label: 'Student Promotion', icon: BiBarChartAlt },
   { path: '/admin/teacher', label: 'Teacher', icon: BiUser },
   { path: '/admin/employee',label: 'Employee', icon: BiGroup},
 

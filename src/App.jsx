@@ -28,7 +28,6 @@ import Timetable from "./pages/admin/Timetable";
 import Settings from "./pages/admin/Settings";
 import UserManagement from "./pages/admin/UserManagement";
 import Classes from "./pages/admin/Classes";
-import PromotionWorkflow from "./pages/admin/Promotion/PromotionWorkflow";
 import ExamCenter from "./pages/admin/Exams";
 import LiveLecture from "./pages/admin/LiveLecture";
 import RecordedLecture from "./pages/admin/RecordedLecture";
@@ -138,7 +137,6 @@ function App() {
             <Route path="syllabus" element={<Syllabus />} />
             <Route path="study-material" element={<StudyMaterial />} />
             <Route path="classes" element={<MasterSetupGuard step={2}><Classes /></MasterSetupGuard>} />
-            <Route path="promotion" element={<MasterSetupGuard step={8}><PromotionWorkflow /></MasterSetupGuard>} />
             <Route path="exam-center" element={<MasterSetupGuard step={11}><ExamCenter /></MasterSetupGuard>} />
             <Route path="workspace" element={<AdminWorkspace />} />
           </Route>
@@ -173,7 +171,6 @@ function App() {
             <Route path="syllabus" element={<Syllabus />} />
             <Route path="study-material" element={<StudyMaterial />} />
             <Route path="classes" element={<MasterSetupGuard step={2}><Classes /></MasterSetupGuard>} />
-            <Route path="promotion" element={<MasterSetupGuard step={8}><PromotionWorkflow /></MasterSetupGuard>} />
             <Route path="exam-center" element={<MasterSetupGuard step={11}><ExamCenter /></MasterSetupGuard>} />
             <Route path="workspace" element={<AdminWorkspace />} />
           </Route>

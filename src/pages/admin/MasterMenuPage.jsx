@@ -151,7 +151,7 @@ const MasterMenuPage = () => {
             prerequisite: "Students",
             description: "Promote or enroll students into standard divisions for the active year.",
             status: step7_comp ? (step8_comp ? "COMPLETED" : "READY") : "LOCKED",
-            route: "/promotion"
+            route: "/students"
           },
           {
             stepNumber: 9,
@@ -223,7 +223,7 @@ const MasterMenuPage = () => {
       { stepNumber: 5, name: "Teachers", count: 0, prerequisite: "Subjects", description: "Onboard and register the teaching faculty profiles.", status: "LOCKED", route: "/teachers" },
       { stepNumber: 6, name: "Teacher-Class-Subject Mapping", count: 0, prerequisite: "Teachers", description: "Map specialized teachers to their respective classes and subjects.", status: "LOCKED", route: "/subjects" },
       { stepNumber: 7, name: "Students", count: 0, prerequisite: "Sections / Divisions", description: "Admit and register student details inside the global roster.", status: "LOCKED", route: "/students" },
-      { stepNumber: 8, name: "Student Academic Mapping", count: 0, prerequisite: "Students", description: "Promote or enroll students into standard divisions for the active year.", status: "LOCKED", route: "/promotion" },
+      { stepNumber: 8, name: "Student Academic Mapping", count: 0, prerequisite: "Students", description: "Promote or enroll students into standard divisions for the active year.", status: "LOCKED", route: "/students" },
       { stepNumber: 9, name: "Timetable", count: 0, prerequisite: "Teacher-Class-Subject Mapping", description: "Build and configure dynamic class timetables.", status: "LOCKED", route: "/timetable" },
       { stepNumber: 10, name: "Attendance", count: 0, prerequisite: "Student Academic Mapping", description: "Record and track daily or lecture-wise student attendance.", status: "LOCKED", route: "/attendance" },
       { stepNumber: 11, name: "Exams", count: 0, prerequisite: "Subjects", description: "Schedule exam terms and grading structures.", status: "LOCKED", route: "/exam-center" },
@@ -271,7 +271,7 @@ const MasterMenuPage = () => {
       case 5: return `${baseRoute}/teachers`;
       case 6: return `${baseRoute}/subjects`;
       case 7: return `${baseRoute}/students`;
-      case 8: return `${baseRoute}/promotion`;
+      case 8: return `${baseRoute}/students`;
       case 9: return `${baseRoute}/timetable`;
       case 10: return `${baseRoute}/attendance`;
       case 11: return `${baseRoute}/exam-center`;

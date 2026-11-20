@@ -1014,18 +1014,6 @@ export function archiveAcademicYear(data) {
 
 
 // =================================================
-// 33. STUDENT PROMOTION API
-// =================================================
-
-export function getActiveStudents(data) {
-  return axiosInstance.post('/student/active', data);
-}
-
-export function promoteStudents(data) {
-  return axiosInstance.post('/promotion/promoteStudents', data);
-}
-
-// =================================================
 // 34. MASTER DATA SETUP DEPENDENCY STATUS
 // =================================================
 

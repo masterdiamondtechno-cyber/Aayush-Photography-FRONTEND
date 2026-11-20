@@ -19,11 +19,10 @@ const WIZARD_STEPS = [
   { stepNumber: 3, name: 'Subjects & Mappings', route: '/subjects' },
   { stepNumber: 4, name: 'Teachers Onboarding', route: '/teachers' },
   { stepNumber: 5, name: 'Students Admission', route: '/students' },
-  { stepNumber: 6, name: 'Student Promotions', route: '/promotion' },
-  { stepNumber: 7, name: 'Class Timetable', route: '/timetable' },
-  { stepNumber: 8, name: 'Daily Attendance', route: '/attendance' },
-  { stepNumber: 9, name: 'Exam Schedules', route: '/exam-center' },
-  { stepNumber: 10, name: 'Tuition Fees', route: '/fee-collection' },
+  { stepNumber: 6, name: 'Class Timetable', route: '/timetable' },
+  { stepNumber: 7, name: 'Daily Attendance', route: '/attendance' },
+  { stepNumber: 8, name: 'Exam Schedules', route: '/exam-center' },
+  { stepNumber: 9, name: 'Tuition Fees', route: '/fee-collection' },
 ];
 
 const getActiveStep = (pathname) => {
@@ -32,11 +31,10 @@ const getActiveStep = (pathname) => {
   if (pathname.includes('/subjects')) return WIZARD_STEPS[2];
   if (pathname.includes('/teachers')) return WIZARD_STEPS[3];
   if (pathname.includes('/students')) return WIZARD_STEPS[4];
-  if (pathname.includes('/promotion')) return WIZARD_STEPS[5];
-  if (pathname.includes('/timetable')) return WIZARD_STEPS[6];
-  if (pathname.includes('/attendance')) return WIZARD_STEPS[7];
-  if (pathname.includes('/exam-center')) return WIZARD_STEPS[8];
-  if (pathname.includes('/fee-collection')) return WIZARD_STEPS[9];
+  if (pathname.includes('/timetable')) return WIZARD_STEPS[5];
+  if (pathname.includes('/attendance')) return WIZARD_STEPS[6];
+  if (pathname.includes('/exam-center')) return WIZARD_STEPS[7];
+  if (pathname.includes('/fee-collection')) return WIZARD_STEPS[8];
   return null;
 };
 
@@ -227,7 +225,7 @@ const AdminLayout = () => {
             </button>
             <div className="flex items-center gap-2 sm:gap-4 min-w-0">
               <span className="text-[11px] sm:text-xs font-semibold text-[#FFC629] bg-[#FFC629]/15 border border-[#FFC629]/30 px-2.5 py-1 rounded-full whitespace-nowrap">
-                Step {activeStep.stepNumber} of 10
+                Step {activeStep.stepNumber} of {WIZARD_STEPS.length}
               </span>
               <span className="text-xs sm:text-sm font-bold text-white truncate">{activeStep.name}</span>
             </div>
