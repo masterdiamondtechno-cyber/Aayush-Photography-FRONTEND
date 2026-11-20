@@ -160,10 +160,10 @@ const AdminLayout = () => {
 
       {/* Content area: md+ pe sidebar ke RIGHT me shuru hota hai */}
       <div className="app-layout-content flex min-h-dvh min-w-0 flex-col">
-        <header className="sticky top-0 z-[900] h-20 flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#1E1E1E] shadow-lg shadow-black/40 min-w-0 px-4 sm:px-6 lg:px-8 w-full">
-          <div className="flex items-center justify-between gap-4 w-full min-w-0">
+        <header className="sticky top-0 z-[900] h-20 flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#1E1E1E] shadow-lg shadow-black/40 min-w-0 px-3 sm:px-5 lg:px-6 w-full">
+          <div className="flex items-center justify-between gap-2 sm:gap-4 w-full min-w-0">
             {/* Left: Hamburger + Mobile Brand Logo + Icon & Platform Title */}
-            <div className="flex items-center gap-3 min-w-0">
+            <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 shrink-0">
               <button
                 className="md:hidden w-9 h-9 flex items-center justify-center text-[#FFC629] hover:bg-[#1E1E1E] rounded-xl border border-[#2A2A2A] transition shrink-0"
                 onClick={() => setSidebarOpen(true)}
@@ -178,39 +178,41 @@ const AdminLayout = () => {
                 <BrandLogo size="navbar" className="h-9 w-auto max-w-[165px]" />
               </Link>
 
-              <div className="flex items-center gap-3 min-w-0">
-                <span className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-[#1A1A1A] border border-[#FFC629]/30 text-[#FFC629] text-xl shadow-inner shrink-0">
+              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+                <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-[#1A1A1A] border border-[#FFC629]/30 text-[#FFC629] text-lg sm:text-xl shadow-inner shrink-0">
                   <BiCamera />
                 </span>
                 <div className="flex flex-col min-w-0">
-                  <div className="flex items-center gap-2">
-                    <h2 className="font-['Cinzel'] text-sm sm:text-base font-bold text-[#FFC629] truncate tracking-wide">
+                  <div className="flex items-center gap-1.5">
+                    <h2 className="font-['Cinzel'] text-xs sm:text-sm lg:text-base font-bold text-[#FFC629] truncate tracking-wide max-w-[140px] sm:max-w-[190px] xl:max-w-none">
                       {schoolName}
                     </h2>
-                    <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase">
-                      Official Portal
+                    <span className="hidden xl:inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase shrink-0">
+                      Official
                     </span>
                   </div>
-                  <span className="text-[11px] text-[#8E8E93] truncate hidden sm:block">
-                    Ayushyachi Photography • Tushar Pulate Institute
+                  <span className="text-[10px] text-[#8E8E93] truncate hidden 2xl:block">
+                    Ayushyachi Photography
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Center: Public Website Nav Links (Home, About, Courses, Gallery, FAQ, Contact) */}
-            <DashboardPublicNav />
+            {/* Center: Public Website Nav Links (Home, About, Courses, Facilities, Gallery, FAQ, Contact) */}
+            <div className="flex-1 flex justify-center items-center min-w-0 px-1 sm:px-2">
+              <DashboardPublicNav />
+            </div>
 
             {/* Right: Year Selector, User Info */}
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <GlobalYearSelector />
 
-              <div className="hidden lg:flex items-center gap-2.5 pl-3 border-l border-[#262626]">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FFC629] to-[#E0AC1B] text-black font-extrabold text-xs flex items-center justify-center shadow-sm shadow-[#FFC629]/20">
+              <div className="hidden lg:flex items-center gap-2 pl-2 sm:pl-3 border-l border-[#262626]">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FFC629] to-[#E0AC1B] text-black font-extrabold text-xs flex items-center justify-center shadow-sm shadow-[#FFC629]/20 shrink-0">
                   {initials}
                 </div>
-                <div className="flex flex-col text-left">
-                  <span className="text-xs font-bold text-[#FFFFFF] leading-tight truncate max-w-[120px]">
+                <div className="flex flex-col text-left min-w-0">
+                  <span className="text-xs font-bold text-[#FFFFFF] leading-tight truncate max-w-[90px] xl:max-w-[130px]">
                     {displayName}
                   </span>
                   <span className="text-[10px] text-[#FFC629] uppercase tracking-wider font-semibold">
