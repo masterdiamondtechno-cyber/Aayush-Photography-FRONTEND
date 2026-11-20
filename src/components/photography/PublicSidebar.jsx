@@ -95,8 +95,8 @@ const PublicSidebar = ({ isOpen, onClose }) => {
                   <>
                     <span className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all shrink-0 ${
                       isActive
-                        ? 'bg-[#FFC629] text-black shadow-md shadow-[#FFC629]/30'
-                        : 'bg-[#1A1A1A] text-[#FFC629] group-hover:bg-[#FFC629]/25'
+                        ? 'bg-[#262626] text-white border border-[#3A3A3A] shadow-sm'
+                        : 'bg-[#161616] text-[#A0A0A0] border border-[#222222] group-hover:text-white group-hover:bg-[#222222] group-hover:border-[#333333]'
                     }`}>
                       <Icon size={18} />
                     </span>
