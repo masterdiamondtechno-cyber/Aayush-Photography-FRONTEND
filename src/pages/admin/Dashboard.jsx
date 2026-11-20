@@ -220,13 +220,13 @@ const Dashboard = () => {
         </div>
       )}
 
-      {/* Row 1: School Identity & Metric Stats (Spacious "khula khula") */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-8">
+      {/* Row 1: School Identity & Metric Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div
-          className="lg:col-span-2 p-6 sm:p-8 lg:p-10 bg-[#141414] border border-[#2A2A2A] rounded-3xl flex items-center gap-7 cursor-pointer hover:border-[#FFC629] hover:shadow-xl transition dashboard-panel"
+          className="md:col-span-2 lg:col-span-2 p-6 sm:p-8 bg-[#141414] border border-[#2A2A2A] rounded-3xl flex items-center gap-6 cursor-pointer hover:border-[#FFC629] hover:shadow-xl transition dashboard-panel"
           onClick={handleSchoolCardClick}
         >
-          <div className="w-22 h-22 bg-[#1A1A1A] border-2 border-[#FFC629]/40 rounded-2xl flex items-center justify-center flex-shrink-0 p-3 overflow-hidden shadow-inner">
+          <div className="w-20 h-20 bg-[#1A1A1A] border-2 border-[#FFC629]/40 rounded-2xl flex items-center justify-center flex-shrink-0 p-3 overflow-hidden shadow-inner">
             <img
               src={dashboardData?.['School Info']?.schoolLogo || "/assets/school_logo_premium_1772187603829.png"}
               alt="Institute Logo"
@@ -246,24 +246,22 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 sm:gap-6">
-          <StatCard
-            title="Students"
-            count={dashboardData?.['Student Count']?.total || 0}
-            icon={BiGroup}
-            color="#FFC629"
-            subtitle={`Active: ${dashboardData?.['Student Count']?.active || 0}`}
-            onClick={() => handleStatCardClick('student')}
-          />
-          <StatCard
-            title="Teachers"
-            count={dashboardData?.['Teacher Count']?.total || 0}
-            icon={BiUser}
-            color="#10b981"
-            subtitle={`Active: ${dashboardData?.['Teacher Count']?.active || 0}`}
-            onClick={() => handleStatCardClick('teacher')}
-          />
-        </div>
+        <StatCard
+          title="Students"
+          count={dashboardData?.['Student Count']?.total || 0}
+          icon={BiGroup}
+          color="#FFC629"
+          subtitle={`Active: ${dashboardData?.['Student Count']?.active || 0}`}
+          onClick={() => handleStatCardClick('student')}
+        />
+        <StatCard
+          title="Teachers"
+          count={dashboardData?.['Teacher Count']?.total || 0}
+          icon={BiUser}
+          color="#10b981"
+          subtitle={`Active: ${dashboardData?.['Teacher Count']?.active || 0}`}
+          onClick={() => handleStatCardClick('teacher')}
+        />
       </div>
 
       {/* Row 2: Student Attendance & Teacher Attendance */}
