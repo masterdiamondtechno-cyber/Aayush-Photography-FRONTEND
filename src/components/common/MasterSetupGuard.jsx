@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { getAuthValue } from "../../utils/auth";
 import { getMasterSetupStatus } from "../../api/api";
 import { BiLockAlt, BiArrowBack, BiRefresh } from "react-icons/bi";
@@ -29,6 +29,7 @@ export const getCachedMasterStatus = async (schoolId, academicYearId, force = fa
 
 const MasterSetupGuard = ({ step, children }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [loading, setLoading] = useState(cachedStatus === null);
   const [isLocked, setIsLocked] = useState(false);
   const [prereqName, setPrereqName] = useState("");
@@ -131,39 +132,51 @@ const MasterSetupGuard = ({ step, children }) => {
   if (loading) {
     return (
       <div className="flex min-h-[400px] flex-col items-center justify-center gap-6 p-8">
-        <div className="h-11 w-11 animate-spin rounded-full border-4 border-slate-100 border-t-indigo-600" />
-        <p className="text-sm font-medium text-slate-500">Verifying configuration status and dependencies...</p>
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-[#2A2A2A] border-t-[#FFC629]" />
+        <p className="text-sm font-medium text-[#FFC629]">Verifying setup status...</p>
       </div>
     );
   }
 
   if (isLocked) {
+    const isSchool = location.pathname.startsWith("/school");
+    const baseRoute = isSchool ? "/school" : "/admin";
+    const setupTarget = prereqName === "Academic Year" 
+      ? `${baseRoute}/settings?tab=academic&action=add` 
+      : `${baseRoute}/master-menu`;
+
     return (
-      <div className="flex min-h-[calc(100dvh-120px)] items-center justify-center bg-[radial-gradient(circle_at_top_left,rgba(79,70,229,0.03),transparent_40%)] p-4 sm:p-8">
-        <div className="flex w-full max-w-lg flex-col items-center gap-6 rounded-3xl border border-slate-200/80 bg-white/85 p-8 text-center shadow-xl backdrop-blur-xl sm:p-12">
-          <div className="flex h-18 w-18 items-center justify-center rounded-full border border-red-200 bg-red-50 shadow-[0_0_0_8px_rgba(254,226,226,0.4)]">
-            <BiLockAlt className="text-4xl text-red-500" />
+      <div className="flex min-h-[calc(100dvh-120px)] items-center justify-center p-4 sm:p-8">
+        <div className="flex w-full max-w-lg flex-col items-center gap-6 rounded-3xl border border-[#2A2A2A] bg-[#141414] p-8 text-center shadow-2xl backdrop-blur-xl sm:p-12">
+          <div className="flex h-18 w-18 items-center justify-center rounded-full border border-amber-500/30 bg-amber-500/10 shadow-[0_0_0_8px_rgba(255,198,41,0.1)]">
+            <BiLockAlt className="text-4xl text-[#FFC629]" />
           </div>
-          <h2 className="font-['Lexend'] text-3xl font-extrabold text-slate-900">Step Locked</h2>
-          <p className="text-sm leading-6 text-slate-500">
-            This module is currently locked because your school data is not configured sequentially.
+          <h2 className="font-['Cinzel'] text-2xl sm:text-3xl font-extrabold text-[#FFC629]">Step Locked</h2>
+          <p className="text-sm leading-6 text-[#A0A0A0]">
+            This module requires sequential configuration before it can be used.
           </p>
           
-          <div className="flex w-full flex-col gap-1 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400">Missing Prerequisite:</span>
-            <span className="text-lg font-bold text-indigo-600">{prereqName}</span>
+          <div className="flex w-full flex-col gap-1 rounded-2xl border border-[#2A2A2A] bg-[#1C1C1C] p-5">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#888888]">Missing Prerequisite:</span>
+            <span className="text-lg font-bold text-[#FFC629]">{prereqName}</span>
           </div>
 
-          <p className="text-sm leading-6 text-slate-500">
-            Please configure and save active records for <strong>{prereqName}</strong> first to unlock this screen.
+          <p className="text-sm leading-6 text-[#C0C0C0]">
+            Please configure and activate <strong className="text-white">{prereqName}</strong> first to unlock this section.
           </p>
 
           <div className="flex w-full flex-col gap-3 sm:flex-row">
-            <button className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-indigo-500/20 bg-white px-5 py-3.5 font-semibold text-indigo-600 transition hover:bg-indigo-50" onClick={() => navigate(location.pathname.startsWith("/school") ? "/school/master-menu" : "/admin/master-menu")}>
-              <BiArrowBack /> Setup Orchestrator
+            <button 
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#FFC629] to-[#FFB703] px-5 py-3.5 font-extrabold text-black transition hover:brightness-110 shadow-lg shadow-[#FFC629]/20" 
+              onClick={() => navigate(setupTarget)}
+            >
+              <BiArrowBack /> Configure {prereqName}
             </button>
-            <button className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3.5 font-semibold text-white transition hover:bg-indigo-700" onClick={() => verifyDependency(true)}>
-              <BiRefresh /> Retry Status
+            <button 
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#2A2A2A] bg-[#1E1E1E] px-4 py-3.5 font-semibold text-[#CCCCCC] transition hover:text-white hover:bg-[#252525]" 
+              onClick={() => verifyDependency(true)}
+            >
+              <BiRefresh /> Refresh
             </button>
           </div>
         </div>

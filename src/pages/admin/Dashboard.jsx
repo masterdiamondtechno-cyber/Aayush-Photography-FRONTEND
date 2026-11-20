@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import StatCard from '../../components/common/StatCard';
 import { MOCK_STATS } from '../../data/mockData';
 import { BiUser, BiGroup } from 'react-icons/bi';
@@ -13,6 +13,7 @@ import { useAcademicYearStore } from '../../store/academicYearStore';
  */
 const Dashboard = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [dashboardData, setDashboardData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -117,7 +118,19 @@ const Dashboard = () => {
   // First-time setup state (Waiting for Academic Year setup)
   if (needsSetup) {
     const role = getAuthValue('userRole') || 'school';
-    const masterMenuPath = role === 'admin' ? '/admin/master-menu' : '/school/master-menu';
+    const isSchoolRoute = location.pathname.startsWith('/school');
+    const basePrefix = isSchoolRoute ? '/school' : (role.toLowerCase() === 'admin' ? '/admin' : '/school');
+    const masterMenuPath = `${basePrefix}/master-menu`;
+
+    const setupModules = [
+      { label: '📅 Academic Year', route: `${basePrefix}/settings?tab=academic&action=add` },
+      { label: '🏛️ Classes', route: `${basePrefix}/classes` },
+      { label: '📚 Subjects', route: `${basePrefix}/subjects` },
+      { label: '👨‍🏫 Teachers', route: `${basePrefix}/teachers` },
+      { label: '👨‍🎓 Students', route: `${basePrefix}/students` },
+      { label: '📝 Exams & Fees', route: `${basePrefix}/exam-center` },
+    ];
+
     return (
       <div className="max-w-[1400px] mx-auto animate-[fadeIn_0.5s_ease-out] space-y-10">
         <div className="mb-8">
@@ -156,13 +169,16 @@ const Dashboard = () => {
             </p>
 
             <div className="flex justify-center gap-3.5 flex-wrap mb-10">
-              {['📅 Academic Year', '🏛️ Classes', '📚 Subjects', '👨‍🏫 Teachers', '👨‍🎓 Students', '📝 Exams & Fees'].map((label, i) => (
-                <span
+              {setupModules.map((item, i) => (
+                <button
                   key={i}
-                  className="px-5 py-2.5 bg-[#FFC629]/15 border border-[#FFC629]/35 rounded-full text-[#FFC629] font-bold text-sm backdrop-blur-sm hover:bg-[#FFC629]/25 transition-all cursor-default shadow-sm"
+                  type="button"
+                  onClick={() => navigate(item.route)}
+                  className="px-5 py-2.5 bg-[#FFC629]/15 hover:bg-[#FFC629]/30 active:bg-[#FFC629]/40 border border-[#FFC629]/40 hover:border-[#FFC629] rounded-full text-[#FFC629] hover:text-white font-bold text-sm backdrop-blur-sm transition-all duration-200 cursor-pointer shadow-md shadow-black/20 hover:scale-105 active:scale-95"
+                  title={`Configure ${item.label}`}
                 >
-                  {label}
-                </span>
+                  {item.label}
+                </button>
               ))}
             </div>
 
