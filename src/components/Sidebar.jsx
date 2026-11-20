@@ -147,22 +147,22 @@ const Sidebar = ({ links = ADMIN_SIDEBAR_LINKS, onLogout, userName, userEmail, i
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        {/* ── Brand Header (Grand Extra-Large Logo, Full Edge-to-Edge Prominent, Hover-Only Lift) ── */}
-        <div className="relative flex items-center justify-center px-2 sm:px-3 py-5 sm:py-6 border-b border-[#262626] shrink-0 bg-[#0E0E0E]">
+        {/* ── Brand Header (Aligned cleanly with top navbar h-20 / 80px) ── */}
+        <div className="relative h-20 flex items-center justify-between px-4 border-b border-[#1E1E1E] shrink-0 bg-[#0E0E0E]">
           <Link
             to={adjustPath('/admin/dashboard')}
-            className="flex items-center justify-center w-full min-w-0 py-1 transition-transform duration-300 group"
+            className="flex items-center justify-center w-full min-w-0 transition-transform duration-200 group"
             aria-label="आयुष्याची फोटोग्राफी"
           >
             <BrandLogo
-              size="hero"
-              className="w-full max-w-[276px] h-24 sm:h-28 group-hover:-translate-y-1.5 group-hover:scale-105 transition-all duration-300"
+              size="navbar"
+              className="max-h-12 w-auto group-hover:scale-105 transition-all duration-200"
               animated={false}
               hoverEffect={true}
             />
           </Link>
           <button
-            className="md:hidden absolute right-2 top-3 w-8 h-8 flex items-center justify-center text-[#FFC629] hover:text-white rounded-lg hover:bg-[#1E1E1E] transition shrink-0"
+            className="md:hidden absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-[#FFC629] hover:text-white rounded-lg hover:bg-[#1E1E1E] transition shrink-0"
             onClick={onClose}
             aria-label="Close sidebar"
           >

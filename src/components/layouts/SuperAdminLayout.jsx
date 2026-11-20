@@ -76,7 +76,7 @@ const SuperAdminLayout = () => {
         onClose={() => setSidebarOpen(false)}
       />
       <div className="app-layout-content flex min-h-screen min-w-0 flex-col">
-        <header className="sticky top-0 z-[900] h-16 flex items-center bg-[#111111] border-b border-[#1E1E1E] min-w-0 px-4 lg:px-6 w-full">
+        <header className="sticky top-0 z-[900] h-20 flex items-center bg-[#111111] border-b border-[#1E1E1E] min-w-0 px-4 lg:px-6 w-full">
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center gap-3 min-w-0">
               <button className="md:hidden w-10 h-10 flex items-center justify-center text-[#A0A0A0] hover:bg-[#1E1E1E] rounded-lg transition shrink-0" onClick={() => setSidebarOpen(true)} title="Open Menu">

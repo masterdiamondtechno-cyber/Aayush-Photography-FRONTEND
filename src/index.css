@@ -31,7 +31,7 @@
   --info: #3b82f6;
   
   --sidebar-width: 256px;
-  --navbar-height: 64px;
+  --navbar-height: 80px;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -915,9 +915,9 @@ aside .brand-logo-container,
 
 aside .brand-logo-container .brand-logo-svg,
 .portal-sidebar .brand-logo-container .brand-logo-svg {
-  height: 94px !important;
-  max-height: 105px !important;
-  max-width: 276px !important;
+  height: 48px !important;
+  max-height: 52px !important;
+  max-width: 235px !important;
   width: 100% !important;
   object-fit: contain !important;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease, color 0.3s ease !important;
@@ -926,9 +926,9 @@ aside .brand-logo-container .brand-logo-svg,
 @media (min-width: 1024px) {
   aside .brand-logo-container .brand-logo-svg,
   .portal-sidebar .brand-logo-container .brand-logo-svg {
-    height: 100px !important;
-    max-height: 110px !important;
-    max-width: 280px !important;
+    height: 50px !important;
+    max-height: 54px !important;
+    max-width: 245px !important;
   }
 }
 

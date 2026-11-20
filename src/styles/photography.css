@@ -1387,12 +1387,18 @@ a:hover .brand-logo-svg,
         /* Hero */
         .about-hero-section {
           position: relative;
-          min-height: 420px;
+          min-height: 380px;
           display: flex;
           align-items: center;
-          padding-top: 120px;
-          padding-bottom: 60px;
+          padding-top: 5.5rem;
+          padding-bottom: 50px;
           overflow: hidden;
+        }
+        @media (max-width: 1024px) {
+          .about-hero-section {
+            padding-top: 3rem;
+            padding-bottom: 40px;
+          }
         }
         .about-hero-bg {
           position: absolute;
@@ -1861,12 +1867,18 @@ a:hover .brand-logo-svg,
 
         .courses-hero-section {
           position: relative;
-          min-height: 440px;
+          min-height: 380px;
           display: flex;
           align-items: center;
-          padding-top: 130px;
-          padding-bottom: 70px;
+          padding-top: 5.5rem;
+          padding-bottom: 50px;
           overflow: hidden;
+        }
+        @media (max-width: 1024px) {
+          .courses-hero-section {
+            padding-top: 3rem;
+            padding-bottom: 40px;
+          }
         }
         .courses-hero-bg {
           position: absolute;
@@ -2179,12 +2191,18 @@ a:hover .brand-logo-svg,
 
         .facilities-hero-section {
           position: relative;
-          min-height: 440px;
+          min-height: 380px;
           display: flex;
           align-items: center;
-          padding-top: 130px;
-          padding-bottom: 70px;
+          padding-top: 5.5rem;
+          padding-bottom: 50px;
           overflow: hidden;
+        }
+        @media (max-width: 1024px) {
+          .facilities-hero-section {
+            padding-top: 3rem;
+            padding-bottom: 40px;
+          }
         }
         .facilities-hero-bg {
           position: absolute;
@@ -2251,12 +2269,18 @@ a:hover .brand-logo-svg,
         }
         .gallery-hero-section {
           position: relative;
-          min-height: 420px;
+          min-height: 380px;
           display: flex;
           align-items: center;
-          padding-top: 130px;
-          padding-bottom: 70px;
+          padding-top: 5.5rem;
+          padding-bottom: 50px;
           overflow: hidden;
+        }
+        @media (max-width: 1024px) {
+          .gallery-hero-section {
+            padding-top: 3rem;
+            padding-bottom: 40px;
+          }
         }
         .gallery-hero-bg {
           position: absolute;
@@ -2560,12 +2584,18 @@ a:hover .brand-logo-svg,
 
         .faq-hero-section {
           position: relative;
-          min-height: 440px;
+          min-height: 380px;
           display: flex;
           align-items: center;
-          padding-top: 130px;
-          padding-bottom: 70px;
+          padding-top: 5.5rem;
+          padding-bottom: 50px;
           overflow: hidden;
+        }
+        @media (max-width: 1024px) {
+          .faq-hero-section {
+            padding-top: 3rem;
+            padding-bottom: 40px;
+          }
         }
         .faq-hero-bg {
           position: absolute;
@@ -2656,12 +2686,18 @@ a:hover .brand-logo-svg,
 
         .contact-hero-section {
           position: relative;
-          min-height: 380px;
+          min-height: 340px;
           display: flex;
           align-items: center;
-          padding-top: 115px;
-          padding-bottom: 50px;
+          padding-top: 5.5rem;
+          padding-bottom: 40px;
           overflow: hidden;
+        }
+        @media (max-width: 1024px) {
+          .contact-hero-section {
+            padding-top: 3rem;
+            padding-bottom: 30px;
+          }
         }
         .contact-hero-bg {
           position: absolute;
@@ -3025,12 +3061,18 @@ a:hover .brand-logo-svg,
 
         .site-app {
           display: flex;
-          flex-direction: column;
           min-height: 100vh;
           width: 100% !important;
           max-width: 100% !important;
           background-color: var(--bg-primary);
           position: relative;
+        }
+        .public-content-wrapper {
+          flex: 1 1 0%;
+          min-width: 0;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
         }
         .main-viewport {
           flex: 1 0 auto;
@@ -3067,18 +3109,18 @@ a:hover .brand-logo-svg,
           display: flex !important;
           justify-content: center !important;
           position: relative;
-          padding-top: 155px;
-          padding-bottom: 110px;
+          padding-top: 5.5rem;
+          padding-bottom: 5.5rem;
           border-bottom: 1px solid #1E1E1E;
           overflow: hidden;
           background: radial-gradient(circle at 75% 30%, rgba(255, 198, 41, 0.08) 0%, transparent 60%),
                       radial-gradient(circle at 10% 20%, rgba(255, 198, 41, 0.05) 0%, transparent 50%),
                       #090909;
         }
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
           .home-hero-section {
-            padding-top: 130px;
-            padding-bottom: 70px;
+            padding-top: 3rem;
+            padding-bottom: 3.5rem;
           }
         }
 

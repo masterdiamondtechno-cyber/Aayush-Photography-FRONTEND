@@ -4,7 +4,8 @@ import Sidebar from '../Sidebar';
 import { clearAuthStorage, getAuthValue, isAuthenticated, getDashboardURL } from '../../utils/auth';
 import { logout, getSchoolById } from '../../api/api';
 import GlobalYearSelector from './GlobalYearSelector';
-import { BiWrench, BiX, BiChevronRight, BiMenu } from 'react-icons/bi';
+import BrandLogo from '../photography/BrandLogo';
+import { BiWrench, BiX, BiChevronRight, BiMenu, BiCamera, BiHomeAlt } from 'react-icons/bi';
 
 /**
  * AdminLayout component
@@ -158,30 +159,68 @@ const AdminLayout = () => {
 
       {/* Content area: md+ pe sidebar ke RIGHT me shuru hota hai */}
       <div className="app-layout-content flex min-h-dvh min-w-0 flex-col">
-        <header className="sticky top-0 z-[900] h-14 flex items-center bg-[#111111] border-b border-[#1E1E1E] shadow-lg shadow-black/30 min-w-0 px-4 sm:px-5 lg:px-8 w-full">
-          <div className="flex items-center justify-between gap-3 w-full min-w-0">
+        <header className="sticky top-0 z-[900] h-20 flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#1E1E1E] shadow-lg shadow-black/40 min-w-0 px-4 sm:px-6 lg:px-8 w-full">
+          <div className="flex items-center justify-between gap-4 w-full min-w-0">
+            {/* Left: Hamburger + Mobile Brand Logo + Icon & Platform Title */}
             <div className="flex items-center gap-3 min-w-0">
               <button
-                className="md:hidden w-9 h-9 flex items-center justify-center text-[#A0A0A0] hover:bg-[#1E1E1E] rounded-lg transition shrink-0"
+                className="md:hidden w-9 h-9 flex items-center justify-center text-[#FFC629] hover:bg-[#1E1E1E] rounded-xl border border-[#2A2A2A] transition shrink-0"
                 onClick={() => setSidebarOpen(true)}
                 title="Open Menu"
                 aria-label="Open menu"
               >
                 <BiMenu size={20} />
               </button>
-              <h2 className="font-['Cinzel'] text-sm font-bold text-[#FFC629] truncate tracking-wide">
-                {schoolName}
-              </h2>
+
+              {/* Mobile Brand Logo in Navbar */}
+              <Link to={baseRoute + '/dashboard'} className="md:hidden flex items-center shrink-0">
+                <BrandLogo size="navbar" className="h-9 w-auto max-w-[165px]" />
+              </Link>
+
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-[#1A1A1A] border border-[#FFC629]/30 text-[#FFC629] text-xl shadow-inner shrink-0">
+                  <BiCamera />
+                </span>
+                <div className="flex flex-col min-w-0">
+                  <div className="flex items-center gap-2">
+                    <h2 className="font-['Cinzel'] text-sm sm:text-base font-bold text-[#FFC629] truncate tracking-wide">
+                      {schoolName}
+                    </h2>
+                    <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase">
+                      Official Portal
+                    </span>
+                  </div>
+                  <span className="text-[11px] text-[#8E8E93] truncate hidden sm:block">
+                    Ayushyachi Photography • Tushar Pulate Institute
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-2 shrink-0">
+
+            {/* Right: Year Selector, User Info (Website option removed as requested) */}
+            <div className="flex items-center gap-3 shrink-0">
               <GlobalYearSelector />
+
+              <div className="hidden lg:flex items-center gap-2.5 pl-3 border-l border-[#262626]">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FFC629] to-[#E0AC1B] text-black font-extrabold text-xs flex items-center justify-center shadow-sm shadow-[#FFC629]/20">
+                  {initials}
+                </div>
+                <div className="flex flex-col text-left">
+                  <span className="text-xs font-bold text-[#FFFFFF] leading-tight truncate max-w-[120px]">
+                    {displayName}
+                  </span>
+                  <span className="text-[10px] text-[#FFC629] uppercase tracking-wider font-semibold">
+                    {displayRole}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </header>
 
         {/* ── Master Setup Banner ── */}
         {showSetupBanner && (
-          <div className="sticky top-14 z-[850] bg-[#161616] border-b border-[#2A2A2A]">
+          <div className="sticky top-20 z-[850] bg-[#161616] border-b border-[#2A2A2A]">
             <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 px-4 sm:px-5 py-2">
               <div className="w-6 h-6 bg-white/20 rounded-md flex items-center justify-center shrink-0">
                 <BiWrench className="text-white text-xs" />
