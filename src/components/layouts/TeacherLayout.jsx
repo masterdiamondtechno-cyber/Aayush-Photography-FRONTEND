@@ -54,9 +54,17 @@ const TeacherLayout = () => {
     return <Navigate to={getDashboardURL()} replace />;
   }
 
+  const storedUser = (() => {
+    try {
+      return JSON.parse(localStorage.getItem('user') || sessionStorage.getItem('user') || '{}');
+    } catch {
+      return {};
+    }
+  })();
   const userRole = localStorage.getItem('userRole') || 'teacher';
-  const userEmail = localStorage.getItem('userEmail') || 'teacher@school.com';
-  const displayName = userEmail.split('@')[0].toUpperCase();
+  const userEmail = storedUser.email || localStorage.getItem('userEmail') || 'teacher@school.com';
+  const userName = storedUser.name || userEmail.split('@')[0].toUpperCase();
+  const displayName = userName;
   const displayRole = userRole.charAt(0).toUpperCase() + userRole.slice(1);
 
   const getInitials = (name) => {
@@ -65,7 +73,7 @@ const TeacherLayout = () => {
     if (parts.length >= 2) return (parts[0][0] + parts[1][0]).toUpperCase();
     return name.substring(0, 2).toUpperCase();
   };
-  const initials = getInitials(displayName);
+  const initials = getInitials(userName);
 
   const teacherLinks = [
     { path: '/teacher/dashboard', label: 'Dashboard', icon: BiGridAlt },
