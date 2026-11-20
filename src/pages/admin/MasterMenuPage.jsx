@@ -486,7 +486,7 @@ const MasterMenuPage = () => {
                       Manage Module &rarr;
                     </button>
                   ) : (
-                    <button className="action-btn btn-ready">
+                    <button className="action-btn btn-ready w-full bg-gradient-to-r from-[#FFC629] to-[#FFB703] text-black font-extrabold border border-[#FFC629] shadow-lg shadow-[#FFC629]/25 hover:brightness-110">
                       Configure &rarr;
                     </button>
                   )}
