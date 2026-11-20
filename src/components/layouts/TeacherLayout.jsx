@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet, useLocation, useNavigate, Navigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate, Navigate, Link } from 'react-router-dom';
 import Sidebar from '../Sidebar';
 import { logout } from '../../api/api';
 import BrandLogo from '../photography/BrandLogo';
