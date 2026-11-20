@@ -265,8 +265,9 @@ const Login = () => {
     const subscriptionStatus = data.school?.subscriptionStatus || data.subscriptionStatus || (data.children && data.children[0]?.subscriptionStatus);
     setAuthValue('subscriptionStatus', subscriptionStatus || '');
 
-    // Case B: Navigate directly to the dashboard
-    navigate('/dashboard');
+    // Case B: Navigate directly to the role-specific dashboard
+    const targetDashboard = `/${role}/dashboard`;
+    navigate(targetDashboard);
   };
 
   /** Go back from OTP step to credentials step */

@@ -76,6 +76,10 @@ import EmployeePage from "./pages/admin/EmployeePage";
 import TeacherLeave from "./pages/teacher/TeacherLeave";
 import ErrorBoundary from "./components/common/ErrorBoundary";
 
+const DashboardRedirect = () => {
+  return <Navigate to={getDashboardURL()} replace />;
+};
+
 /**
  * Main Application Component
  * Handles global routing and layout management
@@ -105,7 +109,7 @@ function App() {
 
           {/* Direct Public Routes */}
           <Route path="/change-first-password" element={<ChangeFirstPassword />} />
-          <Route path="/dashboard" element={<Navigate to={getDashboardURL()} replace />} />
+          <Route path="/dashboard" element={<DashboardRedirect />} />
 
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>

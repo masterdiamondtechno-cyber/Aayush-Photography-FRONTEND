@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
+import { Outlet, Link, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import Sidebar from '../Sidebar';
 import { clearAuthStorage, getAuthValue, isAuthenticated, getDashboardURL } from '../../utils/auth';
 import { logout, getSchoolById } from '../../api/api';
