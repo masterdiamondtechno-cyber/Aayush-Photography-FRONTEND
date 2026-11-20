@@ -4,14 +4,12 @@ import {
   BiCalendarCheck, BiBuilding, BiBookOpen, 
   BiWallet, BiCreditCard, BiBarChartAlt, 
   BiMessageDetail, BiCog, BiLogOutCircle, BiMap,
-  BiMessageSquareAdd,
-  BiHomeAlt
+  BiMessageSquareAdd
 } from 'react-icons/bi';
 
 
 export const ADMIN_SIDEBAR_LINKS = [
   { path: '/admin/dashboard', label: 'Dashboard', icon: BiGridAlt },
-  { path: '/home', label: 'Home', icon: BiHomeAlt },
   { path: '/admin/users', label: 'User Management', icon: BiGroup },
   { path: '/admin/classes', label: 'Class & Section', icon: BiBuilding },
 

@@ -7,6 +7,7 @@ import {
 import { logout } from '../../api/api';
 import { clearAuthStorage, isAuthenticated, getDashboardURL } from '../../utils/auth';
 import { StudentSearchProvider, useStudentSearch } from '../../contexts/StudentSearchContext';
+import DashboardPublicNav from '../navigation/DashboardPublicNav';
 
 const getInitials = (name) => {
   if (!name) return 'ST';
@@ -20,7 +21,6 @@ const getStoredValue = (key) => sessionStorage.getItem(key) ?? localStorage.getI
 // Sidebar menu: feature = subscription feature (optional)
 const NAV_ITEMS = [
   { to: '/student/dashboard', label: 'Dashboard', icon: BiGridAlt },
-  { to: '/home', label: 'Home', icon: BiHomeAlt },
   { to: '/student/timetable', label: 'Timetable', icon: BiCalendar },
   { to: '/student/examination', label: 'Exams', icon: BiBookOpen },
   { to: '/student/live-lecture', label: 'Live Lecture', icon: BiVideo, feature: 'live-lectures' },
@@ -218,7 +218,10 @@ const StudentLayoutInner = () => {
               </div>
             )}
           </div>
-          <div className="hidden sm:block text-sm font-semibold text-[#E0E0E0] shrink-0">Student Panel</div>
+          <div className="flex items-center gap-3 shrink-0">
+            <DashboardPublicNav />
+            <div className="hidden sm:block text-sm font-semibold text-[#E0E0E0] shrink-0 border-l border-[#262626] pl-3">Student Panel</div>
+          </div>
         </header>
 
         <main className="mx-auto w-full max-w-[1400px] flex-1 min-w-0 overflow-x-hidden px-4 py-5 sm:px-6 sm:py-6 lg:px-10 lg:py-10">

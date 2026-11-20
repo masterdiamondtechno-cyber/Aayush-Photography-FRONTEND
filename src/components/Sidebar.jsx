@@ -39,7 +39,10 @@ const Sidebar = ({ links = ADMIN_SIDEBAR_LINKS, onLogout, userName, userEmail, i
     return true;
   });
 
-  const visibleLinks = filteredLinks.filter(l => (l.path || '').toLowerCase() !== '/logout');
+  const visibleLinks = filteredLinks.filter(l => {
+    const p = (l.path || '').toLowerCase();
+    return p !== '/logout' && p !== '/home';
+  });
 
   const adjustPath = (path) => {
     if (!path) return '';

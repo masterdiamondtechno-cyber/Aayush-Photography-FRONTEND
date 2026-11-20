@@ -5,6 +5,7 @@ import { clearAuthStorage, getAuthValue, isAuthenticated, getDashboardURL } from
 import { logout, getSchoolById } from '../../api/api';
 import GlobalYearSelector from './GlobalYearSelector';
 import BrandLogo from '../photography/BrandLogo';
+import DashboardPublicNav from '../navigation/DashboardPublicNav';
 import { BiWrench, BiX, BiChevronRight, BiMenu, BiCamera, BiHomeAlt } from 'react-icons/bi';
 
 /**
@@ -197,7 +198,10 @@ const AdminLayout = () => {
               </div>
             </div>
 
-            {/* Right: Year Selector, User Info (Website option removed as requested) */}
+            {/* Center: Public Website Nav Links (Home, About, Courses, Gallery, FAQ, Contact) */}
+            <DashboardPublicNav />
+
+            {/* Right: Year Selector, User Info */}
             <div className="flex items-center gap-3 shrink-0">
               <GlobalYearSelector />
 

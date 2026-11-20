@@ -3,6 +3,7 @@ import { Outlet, useLocation, useNavigate, Navigate, Link } from 'react-router-d
 import Sidebar from '../Sidebar';
 import { logout } from '../../api/api';
 import BrandLogo from '../photography/BrandLogo';
+import DashboardPublicNav from '../navigation/DashboardPublicNav';
 import { clearAuthStorage, isAuthenticated, getDashboardURL } from '../../utils/auth';
 
 import { 
@@ -77,7 +78,6 @@ const TeacherLayout = () => {
 
   const teacherLinks = [
     { path: '/teacher/dashboard', label: 'Dashboard', icon: BiGridAlt },
-    { path: '/home', label: 'Home', icon: BiHomeAlt },
     { path: '/teacher/students', label: 'My Students', icon: BiSolidUserDetail },
     { path: '/teacher/live-lecture', label: 'Live Lecture', icon: BiBookBookmark },
     { path: '/teacher/recorded-lecture', label: 'Recorded Lecture', icon: BiCamera },
@@ -151,6 +151,9 @@ const TeacherLayout = () => {
                 </div>
               </div>
             </div>
+
+            {/* Center: Public Website Nav Links */}
+            <DashboardPublicNav />
 
             <div className="flex items-center gap-3 shrink-0">
               <div className="hidden lg:flex items-center gap-2.5 pl-3 border-l border-[#262626]">
