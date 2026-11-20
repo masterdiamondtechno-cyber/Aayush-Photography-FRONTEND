@@ -463,40 +463,13 @@ const Login = () => {
                       letterSpacing: '0.05em',
                       border: 'none',
                       cursor: 'pointer',
-                      marginBottom: '18px',
+                      marginBottom: '0',
                       boxShadow: '0 6px 20px rgba(255,198,41,0.22)'
                     }}
                     disabled={loading}
                   >
                     {loading ? 'Processing...' : 'Sign In to Portal'}
                   </button>
-
-                  {/* Bottom Nav Links */}
-                  <div 
-                    className="border-t border-[#2B2B2B] flex flex-col gap-2.5"
-                    style={{ borderTop: '1px solid #2B2B2B', paddingTop: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}
-                  >
-                    <div className="flex items-center justify-between text-xs" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <span className="text-[#D4D4D8]" style={{ fontSize: '12px', color: '#D4D4D8' }}>New Institute / Branch?</span>
-                      <Link
-                        to="/signup"
-                        className="font-bold text-[#FFC629] hover:underline inline-flex items-center gap-1"
-                        style={{ color: '#FFC629', fontWeight: 700, fontSize: '12px' }}
-                      >
-                        Register Institute →
-                      </Link>
-                    </div>
-                    <div className="flex items-center justify-between text-xs" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <span className="text-[#D4D4D8]" style={{ fontSize: '12px', color: '#D4D4D8' }}>New Student Admission?</span>
-                      <Link
-                        to="/contact"
-                        className="font-semibold text-white hover:text-[#FFC629] transition hover:underline"
-                        style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '12px' }}
-                      >
-                        Enquire for Admission
-                      </Link>
-                    </div>
-                  </div>
                 </form>
               )}
 
