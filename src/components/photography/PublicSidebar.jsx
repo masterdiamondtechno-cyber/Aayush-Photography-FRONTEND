@@ -103,9 +103,6 @@ const PublicSidebar = ({ isOpen, onClose }) => {
                     <span className="text-[0.9rem] font-bold truncate tracking-wide flex-1">
                       {item.label}
                     </span>
-                    {isActive && (
-                      <span className="w-2 h-2 rounded-full bg-[#FFC629] shadow-sm shadow-[#FFC629] shrink-0" />
-                    )}
                   </>
                 )}
               </NavLink>
