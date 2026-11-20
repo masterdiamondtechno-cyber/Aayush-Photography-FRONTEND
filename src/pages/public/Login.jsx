@@ -70,8 +70,7 @@ const Login = () => {
 
       const payload = { 
         username: username.trim(), 
-        password,
-        role: 'SCHOOL' 
+        password
       };
       const response = await adminLogin(payload);
       const data = response?.data ?? response;
