@@ -62,16 +62,16 @@ const Sidebar = ({ links = ADMIN_SIDEBAR_LINKS, onLogout, userName, userEmail, i
       return (
         <li key={link.label} className="space-y-1">
           <button
-            className="flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left font-bold text-[#FFC629] transition-all hover:bg-[#FFC629]/15 group cursor-pointer"
+            className="flex w-full items-center justify-between rounded-2xl px-4 py-3.5 text-left font-bold text-[#C0C0C0] hover:text-white transition-all hover:bg-[#FFC629]/15 group cursor-pointer border border-transparent hover:border-[#FFC629]/30"
             onClick={() => toggleSubMenu(link.label)}
           >
             <div className="flex items-center gap-3.5 min-w-0">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1E1E1E] text-[#FFC629] group-hover:bg-[#FFC629]/25 transition shrink-0">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#161616] text-[#A0A0A0] border border-[#222222] group-hover:text-white group-hover:bg-[#222222] group-hover:border-[#333333] transition shrink-0">
                 <link.icon className="text-lg transition" />
               </span>
-              <span className="text-[0.9rem] font-bold truncate tracking-wide text-[#FFC629]">{link.label}</span>
+              <span className="text-[0.9rem] font-bold truncate tracking-wide text-[#C0C0C0] group-hover:text-white">{link.label}</span>
             </div>
-            <span className="shrink-0 ml-2 text-[#FFC629]">
+            <span className="shrink-0 ml-2 text-[#A0A0A0] group-hover:text-[#FFC629]">
               {isOpenSub ? <BiChevronDown className="text-lg" /> : <BiChevronRight className="text-lg" />}
             </span>
           </button>
@@ -90,7 +90,6 @@ const Sidebar = ({ links = ADMIN_SIDEBAR_LINKS, onLogout, userName, userEmail, i
                   }
                   onClick={handleLinkClick}
                 >
-                  <span className="w-2 h-2 rounded-full bg-[#FFC629] shrink-0" />
                   <span className="truncate">{child.label}</span>
                 </NavLink>
               </li>
@@ -109,7 +108,7 @@ const Sidebar = ({ links = ADMIN_SIDEBAR_LINKS, onLogout, userName, userEmail, i
             `flex items-center gap-3.5 rounded-2xl px-4 py-3.5 text-sm font-bold transition-all duration-200 group ${
               isActive
                 ? 'bg-gradient-to-r from-[#FFC629]/25 via-[#FFC629]/15 to-transparent text-[#FFC629] border border-[#FFC629]/50 shadow-md shadow-[#FFC629]/20 font-extrabold'
-                : 'text-[#FFC629] hover:bg-[#FFC629]/15 hover:text-[#FFE066] border border-transparent hover:border-[#FFC629]/30'
+                : 'text-[#C0C0C0] hover:bg-[#FFC629]/15 hover:text-[#FFE066] border border-transparent hover:border-[#FFC629]/30'
             }`
           }
           onClick={handleLinkClick}
@@ -118,12 +117,12 @@ const Sidebar = ({ links = ADMIN_SIDEBAR_LINKS, onLogout, userName, userEmail, i
             <>
               <span className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all shrink-0 ${
                 isActive
-                  ? 'bg-[#FFC629] text-black shadow-md shadow-[#FFC629]/30'
-                  : 'bg-[#1E1E1E] text-[#FFC629] group-hover:bg-[#FFC629]/25'
+                  ? 'bg-[#262626] text-white border border-[#3A3A3A] shadow-sm'
+                  : 'bg-[#161616] text-[#A0A0A0] border border-[#222222] group-hover:text-white group-hover:bg-[#222222] group-hover:border-[#333333]'
               }`}>
                 <link.icon className="text-lg transition" />
               </span>
-              <span className="text-[0.9rem] font-bold truncate tracking-wide text-[#FFC629] group-hover:text-[#FFE066]">{link.label}</span>
+              <span className={`text-[0.9rem] font-bold truncate tracking-wide ${isActive ? 'text-[#FFC629]' : 'text-[#C0C0C0] group-hover:text-[#FFE066]'}`}>{link.label}</span>
             </>
           )}
         </NavLink>
