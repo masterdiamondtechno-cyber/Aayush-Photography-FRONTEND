@@ -116,8 +116,6 @@ const Teachers = () => {
     joiningDate: new Date().toISOString().split('T')[0],
     annualSalary: '',
     monthlySalary: '',
-    pfStatus: 'INACTIVE',
-    pfAccount: '',
     paidInHandSalary: '',
     address: '',
     aadharCardNumber: '',
@@ -197,8 +195,6 @@ const Teachers = () => {
       joiningDate: teacher.joiningDate || '',
       annualSalary: teacher.annualSalary || '',
       monthlySalary: teacher.monthlySalary || '',
-      pfStatus: teacher.pfStatus || 'INACTIVE',
-      pfAccount: teacher.pfAccount || '',
       paidInHandSalary: teacher.paidInHandSalary || '',
       address: teacher.address || '',
       aadharCardNumber: teacher.aadharCardNumber || '',
@@ -292,8 +288,6 @@ const Teachers = () => {
         joiningDate: formData.joiningDate || null,
         annualSalary: formData.annualSalary || null,
         monthlySalary: formData.monthlySalary || null,
-        pfStatus: formData.pfStatus || null,
-        pfAccount: formData.pfAccount || null,
         paidInHandSalary: formData.paidInHandSalary || null,
         address: formData.address || null,
         aadharCardNumber: formData.aadharCardNumber || null,
@@ -1046,22 +1040,6 @@ const Teachers = () => {
                   </div>
                 </div>
 
-                {/* 5. Benefits & PF */}
-                <h4 className="form-section-title"><BiShieldQuarter /> Security & Provident Fund (PF)</h4>
-                <div className="grid grid-2 gap-1 mb-1">
-                  <div className="form-group">
-                    <label>PF Status</label>
-                    <select name="pfStatus" className="form-control" value={formData.pfStatus} onChange={handleInputChange}>
-                      <option value="INACTIVE">Non Eligible</option>
-                      <option value="ACTIVE">Eligible (Deduct PF)</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label>PF Account Number</label>
-                    <input type="text" name="pfAccount" className="form-control" placeholder="PF Account Details" value={formData.pfAccount} onChange={handleInputChange} disabled={formData.pfStatus === 'INACTIVE'} />
-                  </div>
-                </div>
-
               </div>
 
               <div className="flex-end gap-1 border-top pt-1" style={{ marginTop: '1.5rem' }}>
@@ -1165,10 +1143,6 @@ const Teachers = () => {
                   <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '4px' }}>
                     <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Grade/Salary Type</span>
                     <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.salaryType || 'FIXED'}</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '4px' }}>
-                    <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>PF Account Ref</span>
-                    <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.pfAccount || 'Not Registered'}</span>
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '4px' }}>
                     <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Joining Date</span>

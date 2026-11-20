@@ -603,10 +603,6 @@ const UserManagement = () => {
                             <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.salaryType || 'FIXED'}</span>
                           </div>
                           <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '4px' }}>
-                            <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>PF Account Ref</span>
-                            <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.pfAccount || 'Not registered'}</span>
-                          </div>
-                          <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid #f8fafc', paddingBottom: '4px' }}>
                             <span style={{ color: '#64748b', fontSize: '0.85rem', fontWeight: 500 }}>Joining Date</span>
                             <span style={{ color: '#0f172a', fontSize: '0.85rem', fontWeight: 600 }}>{viewingProfile.joiningDate ? new Date(viewingProfile.joiningDate).toLocaleDateString(undefined, { dateStyle: 'medium' }) : 'Not provided'}</span>
                           </div>
