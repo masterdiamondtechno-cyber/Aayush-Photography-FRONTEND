@@ -7,7 +7,7 @@ import {
 import { logout } from '../../api/api';
 import { clearAuthStorage, isAuthenticated, getDashboardURL } from '../../utils/auth';
 import { StudentSearchProvider, useStudentSearch } from '../../contexts/StudentSearchContext';
-import DashboardPublicNav from '../navigation/DashboardPublicNav';
+import GlobalYearSelector from './GlobalYearSelector';
 
 const getInitials = (name) => {
   if (!name) return 'ST';
@@ -185,8 +185,8 @@ const StudentLayoutInner = () => {
       </aside>
 
       {/* Content area: md+ pe sidebar ke RIGHT me shuru hota hai */}
-      <div className="app-layout-content flex min-h-dvh min-w-0 flex-col">
-        <header className="sticky top-0 z-[900] flex h-20 items-center justify-between gap-3 border-b border-[#1E1E1E] bg-[#111111] px-4 lg:px-6">
+      <div className="app-layout-content flex min-h-dvh min-w-0 flex-col overflow-x-hidden">
+        <header className="sticky top-0 z-[900] flex h-16 sm:h-20 items-center justify-between gap-2 sm:gap-3 border-b border-[#1E1E1E] bg-[#111111] px-2.5 sm:px-4 lg:px-6 max-w-full overflow-hidden">
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <button
               className="md:hidden w-10 h-10 flex items-center justify-center text-[#A0A0A0] hover:bg-[#1A1A1A] hover:text-[#E0E0E0] rounded-lg transition shrink-0"
@@ -217,9 +217,9 @@ const StudentLayoutInner = () => {
               </div>
             )}
           </div>
-          <div className="flex items-center gap-3 shrink-0">
-            <DashboardPublicNav />
-            <div className="hidden sm:block text-sm font-semibold text-[#E0E0E0] shrink-0 border-l border-[#262626] pl-3">Student Panel</div>
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+            <GlobalYearSelector />
+            <div className="hidden sm:block text-xs font-bold text-[#FFC629] shrink-0 border-l border-[#262626] pl-3 uppercase tracking-wider">Student Panel</div>
           </div>
         </header>
 

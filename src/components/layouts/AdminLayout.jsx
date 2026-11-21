@@ -5,7 +5,6 @@ import { clearAuthStorage, getAuthValue, isAuthenticated, getDashboardURL } from
 import { logout, getSchoolById } from '../../api/api';
 import GlobalYearSelector from './GlobalYearSelector';
 import BrandLogo from '../photography/BrandLogo';
-import DashboardPublicNav from '../navigation/DashboardPublicNav';
 import { BiWrench, BiX, BiChevronRight, BiMenu, BiCamera, BiHomeAlt } from 'react-icons/bi';
 
 /**
@@ -159,32 +158,33 @@ const AdminLayout = () => {
       />
 
       {/* Content area: md+ pe sidebar ke RIGHT me shuru hota hai */}
-      <div className="app-layout-content flex min-h-dvh min-w-0 flex-col">
-        <header className="sticky top-0 z-[900] h-20 flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#1E1E1E] shadow-lg shadow-black/40 min-w-0 px-3 sm:px-5 lg:px-6 w-full">
-          <div className="flex items-center justify-between gap-2 sm:gap-4 w-full min-w-0">
-            {/* Left: Hamburger + Mobile Brand Logo + Icon & Platform Title */}
-            <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 shrink-0">
+      <div className="app-layout-content flex min-h-dvh min-w-0 flex-col overflow-x-hidden">
+        <header className="sticky top-0 z-[900] h-16 sm:h-20 flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#1E1E1E] shadow-lg shadow-black/40 min-w-0 px-2.5 sm:px-5 lg:px-6 w-full max-w-full overflow-hidden">
+          <div className="flex items-center justify-between gap-1.5 sm:gap-4 w-full min-w-0">
+            {/* Left: Hamburger (mobile) + Branding */}
+            <div className="flex items-center gap-2 min-w-0 shrink">
               <button
-                className="md:hidden w-9 h-9 flex items-center justify-center text-[#FFC629] hover:bg-[#1E1E1E] rounded-xl border border-[#2A2A2A] transition shrink-0"
+                className="md:hidden w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-[#FFC629] hover:bg-[#1E1E1E] rounded-xl border border-[#2A2A2A] transition shrink-0"
                 onClick={() => setSidebarOpen(true)}
                 title="Open Menu"
                 aria-label="Open menu"
               >
-                <BiMenu size={20} />
+                <BiMenu size={18} />
               </button>
 
-              {/* Mobile Brand Logo in Navbar */}
+              {/* Mobile: Brand Logo */}
               <Link to={baseRoute + '/dashboard'} className="md:hidden flex items-center shrink-0">
-                <BrandLogo size="navbar" className="h-9 w-auto max-w-[165px]" />
+                <BrandLogo size="navbar" className="h-7 w-auto max-w-[110px] xs:max-w-[130px]" />
               </Link>
 
-              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+              {/* Desktop: Camera Icon + School Name */}
+              <div className="hidden md:flex items-center gap-2.5 min-w-0">
                 <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-[#1A1A1A] border border-[#FFC629]/30 text-[#FFC629] text-lg sm:text-xl shadow-inner shrink-0">
                   <BiCamera />
                 </span>
                 <div className="flex flex-col min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <h2 className="font-['Cinzel'] text-xs sm:text-sm lg:text-base font-bold text-[#FFC629] truncate tracking-wide max-w-[140px] sm:max-w-[190px] xl:max-w-none">
+                    <h2 className="font-['Cinzel'] text-sm lg:text-base font-bold text-[#FFC629] truncate tracking-wide max-w-[190px] xl:max-w-none">
                       {schoolName}
                     </h2>
                     <span className="hidden xl:inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase shrink-0">
@@ -198,18 +198,17 @@ const AdminLayout = () => {
               </div>
             </div>
 
-            {/* Center: Public Website Nav Links (Home, About, Courses, Facilities, Gallery, FAQ, Contact) */}
-            <div className="flex-1 flex justify-center items-center min-w-0 px-1 sm:px-2">
-              <DashboardPublicNav />
-            </div>
+            {/* Right: Academic Year Selector + User Profile (Never overflowing) */}
+            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+              {/* Academic Year in Navbar */}
+              <GlobalYearSelector />
 
-            {/* Right: User Info */}
-            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-              <div className="flex items-center gap-2 pl-2 sm:pl-3">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FFC629] to-[#E0AC1B] text-black font-extrabold text-xs flex items-center justify-center shadow-sm shadow-[#FFC629]/20 shrink-0">
+              {/* User Info (compact on mobile) */}
+              <div className="flex items-center gap-2 pl-1 sm:pl-2">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-[#FFC629] to-[#E0AC1B] text-black font-extrabold text-[11px] sm:text-xs flex items-center justify-center shadow-sm shadow-[#FFC629]/20 shrink-0" title={displayName}>
                   {initials}
                 </div>
-                <div className="flex flex-col text-left min-w-0">
+                <div className="hidden sm:flex flex-col text-left min-w-0">
                   <span className="text-xs font-bold text-[#FFFFFF] leading-tight truncate max-w-[90px] xl:max-w-[130px]">
                     {displayName}
                   </span>

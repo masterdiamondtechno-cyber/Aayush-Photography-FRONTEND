@@ -6,7 +6,6 @@ import { BiUser, BiGroup } from 'react-icons/bi';
 import { getDashboardData, getSchoolById } from '../../api/api';
 import { getAuthValue } from '../../utils/auth';
 import { useAcademicYearStore } from '../../store/academicYearStore';
-import GlobalYearSelector from '../../components/layouts/GlobalYearSelector';
 
 /**
  * Admin Dashboard Page - Luxury Dark Gold Theme per Ayushyachi Photography
@@ -145,7 +144,6 @@ const Dashboard = () => {
               </h2>
             </div>
             <div className="flex flex-wrap items-center gap-3">
-              <GlobalYearSelector />
               <div className="bg-[#141414] px-5 py-3 rounded-2xl border border-[#2A2A2A] shadow-md shrink-0">
                 <div className="text-[11px] text-[#FFC629] font-extrabold uppercase tracking-widest">Today</div>
                 <div className="text-sm font-bold text-white mt-0.5">
@@ -214,7 +212,6 @@ const Dashboard = () => {
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <GlobalYearSelector />
           <div className="bg-[#141414] px-5 py-2.5 rounded-xl border border-[#2A2A2A] text-sm text-[#FFC629] font-bold shrink-0">
             {new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' })}
           </div>
