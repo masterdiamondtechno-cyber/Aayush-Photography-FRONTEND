@@ -124,9 +124,9 @@ const StudentLayoutInner = () => {
         />
       )}
 
-      {/* Sidebar: fixed on the left (w-72 = 288px) with curved right border */}
+      {/* Sidebar: Modern Floating Island with Visibly Curved Borders */}
       <aside
-        className={`fixed left-0 top-0 z-[1000] flex h-dvh w-72 max-w-[85vw] flex-col border-r border-[#262626] rounded-r-2xl sm:rounded-r-3xl overflow-hidden bg-[#0A0A0A] transition-transform duration-300 ease-in-out md:translate-x-0 ${
+        className={`fixed left-2.5 top-2.5 bottom-2.5 z-[1000] flex flex-col h-[calc(100dvh-1.25rem)] w-[270px] max-w-[85vw] bg-[#0A0A0A] border border-[#2E2E2E] rounded-3xl overflow-hidden shadow-2xl shadow-black/60 transition-transform duration-300 ease-in-out md:translate-x-0 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >

@@ -646,9 +646,9 @@ svg[class*="calendar"],
 .portal-sidebar,
 aside.portal-sidebar,
 aside[class*="fixed"] {
-  border-top-right-radius: 20px !important;
-  border-bottom-right-radius: 20px !important;
-  border-right: 1.5px solid #262626 !important;
+  border-radius: 24px !important;
+  border: 1.5px solid #2E2E2E !important;
+  overflow: hidden !important;
 }
 
 .portal-topbar,
@@ -656,7 +656,7 @@ aside[class*="fixed"] {
 header[class*="sticky"] {
   border-bottom-left-radius: 20px !important;
   border-bottom-right-radius: 20px !important;
-  border-bottom: 1.5px solid #262626 !important;
+  border-bottom: 1.5px solid #2E2E2E !important;
 }
 
 

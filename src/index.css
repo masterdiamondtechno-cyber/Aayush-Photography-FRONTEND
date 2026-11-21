@@ -859,7 +859,9 @@ table tbody tr:nth-child(even):hover td, .table tbody tr:nth-child(even):hover t
 aside,
 .portal-sidebar {
   background-color: #0A0A0A !important;
-  border-right: 1px solid #222222 !important;
+  border: 1.5px solid #2E2E2E !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
 }
 
 /* Ensure all sidebar navigation links and dropdown buttons have bright yellow text & solid spacing */
