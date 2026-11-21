@@ -352,7 +352,7 @@ const Subjects = () => {
       )}
 
       {/* FILTER BAR */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+      <div className="rounded-2xl border border-[#262626] bg-[#141414] p-5 shadow-sm sm:p-6">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex items-center gap-2 text-sm font-bold text-slate-700">
@@ -445,7 +445,7 @@ const Subjects = () => {
           {filteredSubjects.map(sub => (
             <div
               key={sub.subjectId}
-              className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-indigo-200 hover:shadow-md"
+              className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#262626] bg-[#141414] p-6 shadow-sm transition hover:border-[#FFC629]/40 hover:shadow-md"
             >
               <div>
                 <div className="mb-4 flex items-center justify-between gap-3">
@@ -504,7 +504,7 @@ const Subjects = () => {
           ))}
         </div>
       ) : (
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div className="overflow-hidden rounded-2xl border border-[#262626] bg-[#141414] shadow-sm">
           <div className="overflow-x-auto">
             <table className="min-w-full border-collapse text-left text-sm">
               <thead>
@@ -571,10 +571,10 @@ const Subjects = () => {
 
       {/* EDIT / CREATE GLASSMORPHIC MODAL */}
       {showModal && (
-        <div className="modal-backdrop flex-center subject-modal-backdrop" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(8px)', zIndex: 1000 }}>
-          <div className="card modal-card scale-up subject-modal-card" style={{ width: '90%', maxWidth: '500px', background: 'white', borderRadius: '24px', padding: '2rem', boxShadow: '0 20px 50px rgba(0,0,0,0.15)', border: '1px solid var(--border-light)' }}>
+        <div className="modal-backdrop flex-center subject-modal-backdrop" style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(8px)', zIndex: 1000 }}>
+          <div className="card modal-card scale-up subject-modal-card" style={{ width: '90%', maxWidth: '500px', background: '#141414', borderRadius: '24px', padding: '2rem', boxShadow: '0 20px 50px rgba(0,0,0,0.8)', border: '1px solid #262626' }}>
             
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--text-dark)' }}>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '1.5rem', color: '#FFC629' }}>
               {editingSubject ? 'Edit Subject' : 'Add Subject'}
             </h3>
 

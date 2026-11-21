@@ -554,3 +554,66 @@ form {
 .app-layout-content .grid {
   gap: 1.75rem !important;
 }
+
+/* ==========================================================================
+   CALENDAR ICONS - GOLD / YELLOW VISIBILITY ENFORCEMENT
+   Requested: "jaha jaha calender hai logo black me hai wo visible hona chiye yellow color me icon ok"
+   ========================================================================== */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(80%) sepia(85%) saturate(850%) hue-rotate(355deg) brightness(105%) contrast(105%) !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+}
+
+svg[class*="Calendar"],
+svg[class*="calendar"],
+.lucide-calendar {
+  color: #FFC629 !important;
+}
+
+/* ==========================================================================
+   ELIMINATE STARK WHITE COLOR & ENFORCE DARK GOLD LUXURY THEME
+   Requested: "ye white color ko hta k theme k hisab se set karo"
+   ========================================================================== */
+.card,
+.modal-card,
+.modal-content,
+.modal-content-premium,
+.subject-modal-card,
+.main-workspace-card,
+.timetable-board-card,
+.filter-dashboard-panel,
+.roster-panel {
+  background-color: #141414 !important;
+  border-color: #262626 !important;
+  color: #FFFFFF !important;
+}
+
+/* Fix Timetable Cells & Period Labels */
+.time-slot-premium {
+  background: #181818 !important;
+  border: 1px solid #262626 !important;
+}
+
+.period-label-premium {
+  color: #FFC629 !important;
+}
+
+.slot-cell-premium {
+  background: #121212 !important;
+  border: 1px solid #222222 !important;
+  color: #FFFFFF !important;
+}
+
+.timetable-empty-card {
+  border: 1.5px dashed #333333 !important;
+  background: #141414 !important;
+  color: #666666 !important;
+}
+
+.timetable-empty-card:hover {
+  border-color: #FFC629 !important;
+  color: #FFC629 !important;
+  background: rgba(255, 198, 41, 0.08) !important;
+}

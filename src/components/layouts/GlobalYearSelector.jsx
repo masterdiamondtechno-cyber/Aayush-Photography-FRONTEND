@@ -65,17 +65,17 @@ const GlobalYearSelector = () => {
   if (availableYears.length === 0) return null;
 
   return (
-    <div className="flex items-center gap-1.5 sm:gap-2 bg-slate-50 hover:bg-slate-100 border border-slate-200 px-2.5 sm:px-3 py-1.5 rounded-xl transition">
-      <BiCalendar className="text-indigo-600 text-base sm:text-lg shrink-0" />
-      <span className="hidden md:inline text-xs font-semibold text-slate-500 whitespace-nowrap">Academic Year:</span>
+    <div className="flex items-center gap-2 bg-[#141414] hover:bg-[#1A1A1A] border border-[#2A2A2A] hover:border-[#FFC629]/40 px-3.5 py-2 rounded-2xl shadow-md transition">
+      <BiCalendar className="text-[#FFC629] text-lg shrink-0" />
+      <span className="hidden sm:inline text-xs font-extrabold text-[#FFC629] uppercase tracking-wider whitespace-nowrap">Academic Year:</span>
       <select 
         value={selectedAcademicYear?.academicYearId || ''} 
         onChange={handleChange}
         disabled={loading}
-        className="bg-transparent border-none outline-none font-bold text-xs sm:text-sm text-indigo-600 cursor-pointer pr-1"
+        className="bg-transparent border-none outline-none font-extrabold text-xs sm:text-sm text-white cursor-pointer pr-1"
       >
         {availableYears.map(year => (
-          <option key={year.academicYearId} value={year.academicYearId} className="text-slate-800 font-medium">
+          <option key={year.academicYearId} value={year.academicYearId} className="bg-[#141414] text-[#FFC629] font-bold">
             {year.yearName} {year.isCurrent ? (isMobile ? '•' : '(Active)') : ''}
           </option>
         ))}

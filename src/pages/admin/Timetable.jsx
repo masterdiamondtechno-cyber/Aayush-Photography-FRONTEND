@@ -338,16 +338,16 @@ const Timetable = () => {
         </div>
         <div className="flex flex-shrink-0 flex-wrap items-center gap-3">
           <button
-            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50"
+            className="inline-flex items-center gap-2 rounded-xl border border-[#2A2A2A] bg-[#141414] px-4 py-2.5 text-sm font-semibold text-[#F5E6BE] shadow-sm transition hover:border-[#FFC629] hover:text-[#FFC629]"
             onClick={handlePrintTimetable}
           >
-            <BiDownload className="text-lg" /> Print PDF
+            <BiDownload className="text-lg text-[#FFC629]" /> Print PDF
           </button>
           <button
-            className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold shadow-sm transition ${
+            className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold shadow-sm transition ${
               isEditing
                 ? 'bg-emerald-600 text-white hover:bg-emerald-700'
-                : 'bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-indigo-500/25 hover:from-indigo-700 hover:to-violet-700'
+                : 'bg-gradient-to-r from-[#FFC629] to-[#FFB703] text-black shadow-[#FFC629]/20 hover:brightness-110'
             } disabled:opacity-50`}
             onClick={() => setIsEditing(!isEditing)}
             disabled={!selectedDivision}
@@ -358,13 +358,13 @@ const Timetable = () => {
       </div>
 
       {/* Control Panel & Grid */}
-      <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+      <div className="rounded-2xl border border-[#262626] bg-[#141414] p-6 shadow-sm sm:p-8">
         <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex flex-wrap items-end gap-4">
             <div className="min-w-[160px]">
-              <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-500">Standard Class</label>
+              <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-[#FFC629]">Standard Class</label>
               <select
-                className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-800 shadow-sm outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                className="w-full rounded-xl border border-[#2A2A2A] bg-[#1A1A1A] px-3.5 py-2.5 text-sm font-medium text-white shadow-sm outline-none transition focus:border-[#FFC629]"
                 value={selectedStandard}
                 onChange={(e) => handleStandardChange(e.target.value)}
               >
@@ -377,9 +377,9 @@ const Timetable = () => {
               </select>
             </div>
             <div className="min-w-[140px]">
-              <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-500">Division Section</label>
+              <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-[#FFC629]">Division Section</label>
               <select
-                className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-800 shadow-sm outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 disabled:opacity-50"
+                className="w-full rounded-xl border border-[#2A2A2A] bg-[#1A1A1A] px-3.5 py-2.5 text-sm font-medium text-white shadow-sm outline-none transition focus:border-[#FFC629] disabled:opacity-50"
                 value={selectedDivision}
                 onChange={(e) => setSelectedDivision(e.target.value)}
                 disabled={!selectedStandard}
@@ -389,7 +389,7 @@ const Timetable = () => {
               </select>
             </div>
             <button
-              className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 disabled:opacity-50"
+              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#FFC629] to-[#FFB703] px-5 py-2.5 text-sm font-bold text-black shadow-sm transition hover:brightness-110 disabled:opacity-50"
               onClick={fetchTimetable}
               disabled={!selectedDivision || loading}
             >
@@ -658,19 +658,19 @@ const Timetable = () => {
 
         /* Board layout */
         .timetable-board-card {
-          background: #ffffff;
+          background: #0E0E0E;
           border-radius: 24px;
           padding: 2rem;
-          border: none;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+          border: 1px solid #222222;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .filter-dashboard-panel {
-          background: #ffffff;
+          background: #141414;
           padding: 1.5rem;
           border-radius: 20px;
-          border: 1px solid #f1f5f9;
-          box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.02);
+          border: 1px solid #2A2A2A;
+          box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -695,19 +695,19 @@ const Timetable = () => {
           font-size: 0.72rem;
           font-weight: 800;
           text-transform: uppercase;
-          color: var(--text-muted);
+          color: #FFC629;
           letter-spacing: 0.05em;
         }
 
         .select-premium {
-          background: #ffffff;
-          border: 1.5px solid var(--border-light);
+          background: #161616;
+          border: 1.5px solid #333333;
           border-radius: 12px;
           height: 42px !important;
           padding: 0 1.25rem !important;
           font-size: 0.88rem;
           font-weight: 600;
-          color: var(--text-main);
+          color: #FFC629;
           min-width: 160px;
           outline: none;
           transition: all 0.25s ease;
@@ -715,18 +715,18 @@ const Timetable = () => {
         }
 
         .select-premium:focus {
-          border-color: var(--primary);
-          box-shadow: 0 0 0 3px rgba(93, 95, 239, 0.15);
+          border-color: #FFC629;
+          box-shadow: 0 0 0 3px rgba(255, 198, 41, 0.2);
         }
 
         .input-premium {
-          background: #ffffff;
-          border: 1.5px solid var(--border-light);
+          background: #161616;
+          border: 1.5px solid #333333;
           border-radius: 12px;
           padding: 0.65rem 1.25rem;
           font-size: 0.88rem;
           font-weight: 600;
-          color: var(--text-main);
+          color: #FFFFFF;
           outline: none;
           transition: all 0.25s ease;
         }
@@ -862,22 +862,22 @@ const Timetable = () => {
         }
 
         .time-slot-premium {
-          background: #eef2f6 !important;
+          background: #181818 !important;
           vertical-align: middle;
           padding: 1.25rem 0.75rem !important;
-          box-shadow: inset 0 0 0 1px rgba(0,0,0,0.02) !important;
+          border: 1px solid #262626 !important;
         }
 
         .period-label-premium {
           font-size: 1.2rem;
           font-weight: 850;
-          color: var(--primary);
+          color: #FFC629 !important;
           font-family: 'Lexend', sans-serif;
         }
 
         .time-sublabel-premium {
           font-size: 0.68rem;
-          color: var(--text-muted);
+          color: #A0A0A0;
           font-weight: 650;
           margin-top: 0.2rem;
         }
@@ -888,16 +888,16 @@ const Timetable = () => {
           position: relative;
           height: 105px;
           vertical-align: middle;
-          background: #ffffff !important;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+          background: #121212 !important;
+          border: 1px solid #222222 !important;
           padding: 0px !important; /* Fill slot exactly */
         }
 
         .timetable-slot-card {
           border-radius: 16px;
           padding: 0.65rem 0.85rem;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.01);
-          border: 1px solid rgba(0,0,0,0.03);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+          border: 1px solid #2A2A2A;
           height: 100%;
           width: 100%;
           box-sizing: border-box;
@@ -909,12 +909,12 @@ const Timetable = () => {
 
         .timetable-slot-card:hover {
           transform: translateY(-2px);
-          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
-          filter: brightness(0.97);
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+          filter: brightness(1.1);
         }
 
         .timetable-empty-card {
-          border: 2.2px dashed #cbd5e1;
+          border: 2px dashed #2A2A2A;
           border-radius: 16px;
           height: 100%;
           width: 100%;
@@ -922,12 +922,20 @@ const Timetable = () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          color: #94a3b8;
+          color: #666666;
+          background: #141414;
           gap: 4px;
           font-size: 0.72rem;
           font-weight: 700;
           transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
           cursor: pointer;
+        }
+
+        .timetable-empty-card:hover {
+          border-color: #FFC629;
+          color: #FFC629;
+          background: rgba(255, 198, 41, 0.08);
+        }
           background: transparent;
           box-sizing: border-box;
         }

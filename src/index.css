@@ -1132,3 +1132,18 @@ main button[class*="bg-indigo-600"] {
   border: none !important;
   box-shadow: 0 4px 15px rgba(255, 198, 41, 0.25) !important;
 }
+
+/* ── 6. Global Calendar Icon & Picker Indicator (Yellow/Gold) ── */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(80%) sepia(85%) saturate(850%) hue-rotate(355deg) brightness(105%) contrast(105%) !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+}
+
+svg[class*="Calendar"],
+svg[class*="calendar"],
+.lucide-calendar {
+  color: #FFC629 !important;
+}
+

@@ -203,11 +203,9 @@ const AdminLayout = () => {
               <DashboardPublicNav />
             </div>
 
-            {/* Right: Year Selector, User Info */}
+            {/* Right: User Info */}
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-              <GlobalYearSelector />
-
-              <div className="hidden lg:flex items-center gap-2 pl-2 sm:pl-3 border-l border-[#262626]">
+              <div className="flex items-center gap-2 pl-2 sm:pl-3">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FFC629] to-[#E0AC1B] text-black font-extrabold text-xs flex items-center justify-center shadow-sm shadow-[#FFC629]/20 shrink-0">
                   {initials}
                 </div>
@@ -292,17 +290,17 @@ const AdminLayout = () => {
               )}
               {nextStep ? (
                 <button
-                  className="flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl font-medium text-xs sm:text-sm bg-indigo-600 text-white hover:bg-indigo-700 shadow-md shadow-indigo-500/20 transition"
+                  className="flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-xl font-extrabold text-xs sm:text-sm bg-gradient-to-r from-[#FFC629] to-[#FFB703] text-black shadow-md shadow-[#FFC629]/25 hover:brightness-110 transition cursor-pointer"
                   onClick={() => navigate(`${baseRoute}${nextStep.route}`)}
                 >
                   Next →
                 </button>
               ) : (
                 <button
-                  className="flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl font-medium text-xs sm:text-sm bg-slate-200 text-slate-400 cursor-not-allowed"
-                  disabled
+                  className="flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-xl font-extrabold text-xs sm:text-sm bg-gradient-to-r from-[#FFC629] to-[#FFB703] text-black shadow-md shadow-[#FFC629]/25 hover:brightness-110 transition cursor-pointer"
+                  onClick={() => navigate(`${baseRoute}/dashboard`)}
                 >
-                  Next →
+                  Complete Setup ✓
                 </button>
               )}
             </div>

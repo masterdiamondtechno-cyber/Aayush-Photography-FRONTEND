@@ -435,10 +435,10 @@ const Attendance = () => {
           <p className="text-sm text-slate-500">Academic Configuration • Track Student Presence</p>
         </div>
         <div className="relative">
-          <BiCalendar className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-lg text-slate-400" />
+          <BiCalendar className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-lg text-[#FFC629]" />
           <input
             type="date"
-            className="rounded-xl border border-slate-200 bg-white py-2.5 pl-11 pr-4 text-sm font-semibold text-slate-800 shadow-sm outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+            className="rounded-xl border border-[#2A2A2A] bg-[#141414] py-2.5 pl-11 pr-4 text-sm font-semibold text-[#FFC629] shadow-sm outline-none transition focus:border-[#FFC629] focus:ring-2 focus:ring-[#FFC629]/20"
             value={attendanceDate}
             onChange={(e) => {
               setAttendanceDate(e.target.value);
@@ -452,47 +452,47 @@ const Attendance = () => {
 
       {/* STATS */}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        <div className="flex items-center gap-4 rounded-2xl border border-slate-200 border-l-4 border-l-indigo-500 bg-white p-5 shadow-sm">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-xl text-indigo-600">
+        <div className="flex items-center gap-4 rounded-2xl border border-[#2A2A2A] border-l-4 border-l-[#FFC629] bg-[#141414] p-5 shadow-sm">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1A1A1A] text-xl text-[#FFC629]">
             <BiTrendingUp />
           </div>
           <div className="min-w-0">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Today&apos;s Total Presence</span>
-            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-slate-900">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#A0A0A0]">Today&apos;s Total Presence</span>
+            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-white">
               {summaryData.present}{' '}
-              <span className="text-sm font-medium text-slate-500">/ {summaryData.total} Students</span>
+              <span className="text-sm font-medium text-[#A0A0A0]">/ {summaryData.total} Students</span>
             </h3>
           </div>
         </div>
-        <div className="flex items-center gap-4 rounded-2xl border border-slate-200 border-l-4 border-l-emerald-500 bg-white p-5 shadow-sm">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-xl text-emerald-600">
+        <div className="flex items-center gap-4 rounded-2xl border border-[#2A2A2A] border-l-4 border-l-emerald-500 bg-[#141414] p-5 shadow-sm">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1A1A1A] text-xl text-emerald-500">
             <BiCheck />
           </div>
           <div className="min-w-0">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Present (Active Slot)</span>
-            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-slate-900">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#A0A0A0]">Present (Active Slot)</span>
+            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-white">
               {students.length > 0 ? liveStats.present : '—'}
             </h3>
           </div>
         </div>
-        <div className="flex items-center gap-4 rounded-2xl border border-slate-200 border-l-4 border-l-red-500 bg-white p-5 shadow-sm">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-red-50 text-xl text-red-600">
+        <div className="flex items-center gap-4 rounded-2xl border border-[#2A2A2A] border-l-4 border-l-red-500 bg-[#141414] p-5 shadow-sm">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1A1A1A] text-xl text-red-500">
             <BiX />
           </div>
           <div className="min-w-0">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Absent (Active Slot)</span>
-            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-slate-900">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#A0A0A0]">Absent (Active Slot)</span>
+            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-white">
               {students.length > 0 ? liveStats.absent : '—'}
             </h3>
           </div>
         </div>
-        <div className="flex items-center gap-4 rounded-2xl border border-slate-200 border-l-4 border-l-amber-500 bg-white p-5 shadow-sm">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-xl text-amber-600">
+        <div className="flex items-center gap-4 rounded-2xl border border-[#2A2A2A] border-l-4 border-l-[#FFC629] bg-[#141414] p-5 shadow-sm">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1A1A1A] text-xl text-[#FFC629]">
             <BiSmile />
           </div>
           <div className="min-w-0">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Attendance Rate</span>
-            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-slate-900">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#A0A0A0]">Attendance Rate</span>
+            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-white">
               {students.length > 0 ? `${liveStats.rate}%` : '—'}
             </h3>
           </div>
@@ -500,7 +500,7 @@ const Attendance = () => {
       </div>
 
       {successMsg && (
-        <div className="flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">
+        <div className="flex items-center gap-3 rounded-xl border border-emerald-500/30 bg-emerald-950/40 px-4 py-3 text-sm font-semibold text-emerald-400">
           <BiCheckCircle className="text-xl shrink-0" />
           {successMsg}
         </div>
@@ -513,21 +513,21 @@ const Attendance = () => {
       )}
 
       {/* CORE WORKSPACE CARD */}
-      <div className="card main-workspace-card" style={{ borderRadius: '20px', background: 'white', border: '1px solid var(--border-light)', boxShadow: '0 8px 30px rgba(0,0,0,0.03)', overflow: 'hidden' }}>
+      <div className="card main-workspace-card" style={{ borderRadius: '20px', background: '#141414', border: '1px solid #262626', boxShadow: '0 8px 30px rgba(0,0,0,0.5)', overflow: 'hidden' }}>
         
         {/* Nav Tabs */}
-        <div className="tabs flex-center" style={{ justifyContent: 'flex-start', borderBottom: '1px solid var(--border-light)', background: '#fafafa' }}>
+        <div className="tabs flex-center" style={{ justifyContent: 'flex-start', borderBottom: '1px solid #262626', background: '#181818' }}>
           <button 
             className={`tab-btn flex-center ${view === 'take' ? 'active' : ''}`}
             onClick={() => setView('take')}
-            style={{ padding: '1.25rem 2rem', fontWeight: 700, gap: '0.5rem', fontSize: '0.95rem', border: 'none', background: 'transparent', cursor: 'pointer', transition: 'all 0.3s ease' }}
+            style={{ padding: '1.25rem 2rem', fontWeight: 700, gap: '0.5rem', fontSize: '0.95rem', border: 'none', background: 'transparent', cursor: 'pointer', transition: 'all 0.3s ease', color: view === 'take' ? '#FFC629' : '#A0A0A0' }}
           >
             Take / Edit Attendance
           </button>
           <button 
             className={`tab-btn flex-center ${view === 'show' ? 'active' : ''}`}
             onClick={() => setView('show')}
-            style={{ padding: '1.25rem 2rem', fontWeight: 700, gap: '0.5rem', fontSize: '0.95rem', border: 'none', background: 'transparent', cursor: 'pointer', transition: 'all 0.3s ease' }}
+            style={{ padding: '1.25rem 2rem', fontWeight: 700, gap: '0.5rem', fontSize: '0.95rem', border: 'none', background: 'transparent', cursor: 'pointer', transition: 'all 0.3s ease', color: view === 'show' ? '#FFC629' : '#A0A0A0' }}
           >
             History & Records
           </button>
@@ -537,7 +537,7 @@ const Attendance = () => {
         <div style={{ padding: '2rem' }}>
 
           {/* CASCADING FILTER DROPDOWN BAR */}
-          <div className="card filter-bar-panel" style={{ padding: '1rem', background: '#fafafa', borderRadius: '12px', border: '1px solid var(--border-light)', marginBottom: '2rem' }}>
+          <div className="card filter-bar-panel" style={{ padding: '1rem', background: '#181818', borderRadius: '12px', border: '1px solid #262626', marginBottom: '2rem' }}>
             <div className="flex-between" style={{ flexWrap: 'wrap', gap: '1rem' }}>
               
               <div className="flex-center" style={{ gap: '1rem', flexWrap: 'wrap', flex: 1 }}>

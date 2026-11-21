@@ -317,8 +317,8 @@ const FeeCollection = () => {
           <p className="text-sm text-slate-500">Finance &gt; Fee Collection</p>
         </div>
         <div className="flex flex-shrink-0 flex-wrap items-center gap-3">
-          <button className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50" title="Download Report">
-            <BiDownload className="text-lg" /> Export
+          <button className="inline-flex items-center gap-2 rounded-xl border border-[#2A2A2A] bg-[#141414] px-4 py-2.5 text-sm font-semibold text-[#F5E6BE] shadow-sm transition hover:border-[#FFC629] hover:text-[#FFC629]" title="Download Report">
+            <BiDownload className="text-lg text-[#FFC629]" /> Export
           </button>
           <button
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-indigo-500/25 transition hover:from-indigo-700 hover:to-violet-700"
@@ -331,47 +331,47 @@ const FeeCollection = () => {
 
       {/* Stats */}
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
-        <div className="flex items-center gap-4 rounded-2xl border border-slate-200 border-l-4 border-l-indigo-500 bg-white p-5 shadow-sm">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
+        <div className="flex items-center gap-4 rounded-2xl border border-[#2A2A2A] border-l-4 border-l-[#FFC629] bg-[#141414] p-5 shadow-sm">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1A1A1A] text-[#FFC629]">
             <BiWallet size={24} />
           </div>
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Total Collection</p>
-            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-slate-900">₹{(summary.totalCollected || 0).toLocaleString('en-IN')}</h3>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#A0A0A0]">Total Collection</p>
+            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-white">₹{(summary.totalCollected || 0).toLocaleString('en-IN')}</h3>
           </div>
         </div>
-        <div className="flex items-center gap-4 rounded-2xl border border-slate-200 border-l-4 border-l-amber-500 bg-white p-5 shadow-sm">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
+        <div className="flex items-center gap-4 rounded-2xl border border-[#2A2A2A] border-l-4 border-l-[#FFC629] bg-[#141414] p-5 shadow-sm">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1A1A1A] text-[#FFC629]">
             <BiTimeFive size={24} />
           </div>
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Total Pending</p>
-            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-amber-600">₹{(summary.totalPending || 0).toLocaleString('en-IN')}</h3>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#A0A0A0]">Total Pending</p>
+            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-[#FFC629]">₹{(summary.totalPending || 0).toLocaleString('en-IN')}</h3>
           </div>
         </div>
-        <div className="flex items-center gap-4 rounded-2xl border border-slate-200 border-l-4 border-l-emerald-500 bg-white p-5 shadow-sm">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+        <div className="flex items-center gap-4 rounded-2xl border border-[#2A2A2A] border-l-4 border-l-emerald-500 bg-[#141414] p-5 shadow-sm">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1A1A1A] text-emerald-500">
             <BiCheck size={24} />
           </div>
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Fully Paid</p>
-            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-slate-900">{summary.paidCount || 0}</h3>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#A0A0A0]">Fully Paid</p>
+            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-white">{summary.paidCount || 0}</h3>
           </div>
         </div>
-        <div className="flex items-center gap-4 rounded-2xl border border-slate-200 border-l-4 border-l-red-500 bg-white p-5 shadow-sm">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-red-50 text-red-600">
+        <div className="flex items-center gap-4 rounded-2xl border border-[#2A2A2A] border-l-4 border-l-red-500 bg-[#141414] p-5 shadow-sm">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#1A1A1A] text-red-500">
             <BiXCircle size={24} />
           </div>
           <div className="min-w-0">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Unpaid</p>
-            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-red-600">{summary.unpaidCount || 0}</h3>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#A0A0A0]">Unpaid</p>
+            <h3 className="mt-1 font-['Lexend'] text-xl font-extrabold text-red-400">{summary.unpaidCount || 0}</h3>
           </div>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-        <div className="flex flex-wrap border-b border-slate-200">
+      <div className="overflow-hidden rounded-2xl border border-[#262626] bg-[#141414] shadow-sm">
+        <div className="flex flex-wrap border-b border-[#262626]">
           <button
             onClick={() => setActiveTab('collection')}
             className={`inline-flex items-center gap-2 px-5 py-4 text-sm font-bold transition ${
@@ -401,7 +401,7 @@ const FeeCollection = () => {
 
         {/* TAB: Fee Collection */}
         {activeTab === 'collection' && (
-          <div className="card shadow-sm" style={{ marginTop: '2rem', padding: '0', background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(10px)' }}>
+          <div className="card shadow-sm" style={{ marginTop: '2rem', padding: '0', background: '#141414', border: '1px solid #262626' }}>
             <div style={{ padding: '1.5rem' }}>
               <div className="flex" style={{ justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
                 <div className="flex-center gap-1">
@@ -626,10 +626,10 @@ const FeeCollection = () => {
                 <form className="grid gap-1 mt-1" onSubmit={handleSubmit}>
                   {/* Quick Student Search & Class Filter */}
                   {!editingPayment && (
-                    <div className="grid grid-2 gap-1" style={{ background: '#f8fafc', padding: '10px 12px', borderRadius: '8px', border: '1px solid #e2e8f0', marginBottom: '8px' }}>
+                    <div className="grid grid-2 gap-1" style={{ background: '#181818', padding: '10px 12px', borderRadius: '8px', border: '1px solid #2E2E2E', marginBottom: '8px' }}>
                       <div className="form-group">
-                        <label style={{ fontSize: '0.75rem', fontWeight: 600, color: '#475569' }}>Quick Class Filter</label>
-                        <select className="form-control text-xs" style={{ padding: '4px 8px', height: '32px' }} value={modalStdFilter} onChange={e => setModalStdFilter(e.target.value)}>
+                        <label style={{ fontSize: '0.75rem', fontWeight: 700, color: '#FFC629' }}>Quick Class Filter</label>
+                        <select className="form-control text-xs" style={{ padding: '4px 8px', height: '32px', background: '#101010', color: '#FFC629', border: '1px solid #333333' }} value={modalStdFilter} onChange={e => setModalStdFilter(e.target.value)}>
                           <option value="">All Classes</option>
                           {standards.map(s => {
                             const stdName = s.standard || s.standardName || s.name;
@@ -638,8 +638,8 @@ const FeeCollection = () => {
                         </select>
                       </div>
                       <div className="form-group">
-                        <label style={{ fontSize: '0.75rem', fontWeight: 600, color: '#475569' }}>Quick Name Search</label>
-                        <input type="text" className="form-control text-xs" style={{ padding: '4px 8px', height: '32px' }} placeholder="Type student name..." value={modalSearchFilter} onChange={e => setModalSearchFilter(e.target.value)} />
+                        <label style={{ fontSize: '0.75rem', fontWeight: 700, color: '#FFC629' }}>Quick Name Search</label>
+                        <input type="text" className="form-control text-xs" style={{ padding: '4px 8px', height: '32px', background: '#101010', color: '#FFFFFF', border: '1px solid #333333' }} placeholder="Type student name..." value={modalSearchFilter} onChange={e => setModalSearchFilter(e.target.value)} />
                       </div>
                     </div>
                   )}
