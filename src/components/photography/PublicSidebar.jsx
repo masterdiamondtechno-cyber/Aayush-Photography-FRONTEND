@@ -92,7 +92,7 @@ const PublicSidebar = ({ isOpen, onClose }) => {
                     `flex items-center gap-3.5 rounded-2xl px-4 py-3.5 text-sm font-bold transition-all duration-200 group ${
                       isActive
                         ? 'bg-gradient-to-r from-[#FFC629]/25 via-[#FFC629]/15 to-transparent text-[#FFC629] border border-[#FFC629]/50 shadow-md shadow-[#FFC629]/20 font-extrabold'
-                        : 'text-[#C0C0C0] hover:bg-[#FFC629]/15 hover:text-[#FFE066] border border-transparent hover:border-[#FFC629]/30'
+                        : 'text-[#FFC629] hover:bg-[#FFC629]/15 hover:text-[#FFE066] border border-transparent hover:border-[#FFC629]/30'
                     }`
                   }
                 >
@@ -100,14 +100,12 @@ const PublicSidebar = ({ isOpen, onClose }) => {
                     <>
                       <span className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all shrink-0 ${
                         isActive
-                          ? 'bg-[#262626] text-white border border-[#3A3A3A] shadow-sm'
-                          : 'bg-[#161616] text-[#A0A0A0] border border-[#222222] group-hover:text-white group-hover:bg-[#222222] group-hover:border-[#333333]'
+                          ? 'bg-[#262626] text-[#FFC629] border border-[#FFC629]/40 shadow-sm'
+                          : 'bg-[#161616] text-[#FFC629] border border-[#222222] group-hover:text-[#FFE066] group-hover:bg-[#222222] group-hover:border-[#FFC629]/30'
                       }`}>
-                        <Icon size={18} />
+                        <Icon size={18} className="text-[#FFC629]" />
                       </span>
-                      <span className={`text-[0.9rem] font-bold truncate tracking-wide flex-1 ${
-                        isActive ? 'text-[#FFC629]' : 'text-[#C0C0C0] group-hover:text-[#FFE066]'
-                      }`}>
+                      <span className="text-[0.9rem] font-bold truncate tracking-wide flex-1 text-[#FFC629] group-hover:text-[#FFE066]">
                         {item.label}
                       </span>
                     </>

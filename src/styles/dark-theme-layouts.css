@@ -617,3 +617,25 @@ svg[class*="calendar"],
   color: #FFC629 !important;
   background: rgba(255, 198, 41, 0.08) !important;
 }
+
+/* ==========================================================================
+   WEBSITE PAGES DROPDOWN & RESPONSIVE PUBLIC NAV (YELLOW THEME)
+   Requested: "website page k naam nhi dikh rhe yellow kr do home vgre k responsive kru tb"
+   ========================================================================== */
+.website-pages-dropdown {
+  background-color: #0E0E0E !important;
+  border: 1px solid #262626 !important;
+}
+
+.website-pages-dropdown a,
+.website-pages-dropdown a span,
+.website-pages-dropdown button,
+.website-pages-dropdown button span {
+  color: #FFC629 !important;
+}
+
+.website-pages-dropdown a:hover,
+.website-pages-dropdown a:hover span {
+  color: #FFE066 !important;
+}
+

@@ -1147,3 +1147,22 @@ svg[class*="calendar"],
   color: #FFC629 !important;
 }
 
+/* ── 7. Responsive Website Pages Dropdown (Yellow) ── */
+.website-pages-dropdown {
+  background-color: #0E0E0E !important;
+  border: 1px solid #262626 !important;
+}
+
+.website-pages-dropdown a,
+.website-pages-dropdown a span,
+.website-pages-dropdown button,
+.website-pages-dropdown button span {
+  color: #FFC629 !important;
+}
+
+.website-pages-dropdown a:hover,
+.website-pages-dropdown a:hover span {
+  color: #FFE066 !important;
+}
+
+

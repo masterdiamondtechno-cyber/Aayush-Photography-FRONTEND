@@ -88,37 +88,62 @@ const DashboardPublicNav = () => {
         <button
           type="button"
           onClick={() => setDropdownOpen((prev) => !prev)}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#0A0A0A] border border-[#1E1E1E] text-[#FFC629] hover:bg-[#FFC629]/15 hover:border-[#FFC629]/40 font-bold text-xs shadow-md transition cursor-pointer"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#0A0A0A] border border-[#2A2A2A] text-[#FFC629] hover:bg-[#FFC629]/15 hover:border-[#FFC629]/40 font-extrabold text-xs shadow-md transition cursor-pointer"
           aria-expanded={dropdownOpen}
           aria-label="Toggle website pages menu"
+          style={{ color: '#FFC629' }}
         >
-          <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#161616] text-[#A0A0A0] border border-[#222222]">
-            <BiGlobe className="text-xs" />
+          <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#161616] text-[#FFC629] border border-[#262626]">
+            <BiGlobe className="text-xs text-[#FFC629]" />
           </span>
-          <span>Website Pages</span>
-          <BiChevronDown className={`text-sm text-[#A0A0A0] transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
+          <span className="font-extrabold text-[#FFC629]" style={{ color: '#FFC629' }}>Website Pages</span>
+          <BiChevronDown className={`text-sm text-[#FFC629] transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
         </button>
 
         {dropdownOpen && (
-          <div className="absolute right-0 mt-2 w-52 rounded-2xl bg-[#0A0A0A] border border-[#1E1E1E] shadow-2xl p-1.5 z-[999] backdrop-blur-md animate-in fade-in zoom-in-95 duration-150">
-            <div className="px-3 py-1.5 text-[11px] font-extrabold text-[#FFC629] uppercase tracking-wider border-b border-[#1E1E1E] mb-1">
-              Website Pages
+          <div className="website-pages-dropdown absolute right-0 mt-2 w-56 rounded-2xl bg-[#0E0E0E] border border-[#2A2A2A] shadow-2xl p-2 z-[999] backdrop-blur-md animate-in fade-in zoom-in-95 duration-150">
+            <div className="px-3 py-1.5 text-[11px] font-extrabold text-[#FFC629] uppercase tracking-wider border-b border-[#222222] mb-1.5 flex items-center justify-between">
+              <span style={{ color: '#FFC629' }}>Website Pages</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-[#FFC629]" />
             </div>
             <div className="space-y-1">
               {PUBLIC_NAV_LINKS.map((link) => {
                 const Icon = link.icon;
                 return (
-                  <Link
+                  <NavLink
                     key={link.to}
                     to={link.to}
                     onClick={() => setDropdownOpen(false)}
-                    className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-[#FFC629] hover:bg-[#FFC629]/15 hover:text-[#FFE066] border border-transparent hover:border-[#FFC629]/30 transition group"
+                    className={({ isActive }) =>
+                      `flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-extrabold transition-all group ${
+                        isActive
+                          ? 'bg-[#FFC629]/20 text-[#FFE066] border border-[#FFC629]/50 shadow-sm shadow-[#FFC629]/15'
+                          : 'text-[#FFC629] hover:bg-[#FFC629]/15 hover:text-[#FFE066] border border-transparent hover:border-[#FFC629]/30'
+                      }`
+                    }
+                    style={{ color: '#FFC629' }}
                   >
-                    <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-[#161616] text-[#A0A0A0] border border-[#222222] group-hover:text-white group-hover:bg-[#222222] transition">
-                      <Icon className="text-xs" />
-                    </span>
-                    <span>{link.label}</span>
-                  </Link>
+                    {({ isActive }) => (
+                      <>
+                        <span 
+                          className={`flex h-7 w-7 items-center justify-center rounded-lg transition shrink-0 ${
+                            isActive
+                              ? 'bg-[#222222] text-[#FFC629] border border-[#FFC629]/40 shadow-sm'
+                              : 'bg-[#181818] text-[#FFC629] border border-[#262626] group-hover:bg-[#222222] group-hover:text-[#FFE066] group-hover:border-[#FFC629]/40'
+                          }`}
+                          style={{ color: '#FFC629' }}
+                        >
+                          <Icon className="text-sm text-[#FFC629]" style={{ color: '#FFC629' }} />
+                        </span>
+                        <span 
+                          className="font-extrabold tracking-wide text-xs text-[#FFC629] group-hover:text-[#FFE066]"
+                          style={{ color: '#FFC629' }}
+                        >
+                          {link.label}
+                        </span>
+                      </>
+                    )}
+                  </NavLink>
                 );
               })}
             </div>
