@@ -55,7 +55,7 @@ const AdminLayout = () => {
 
   const userRole = localStorage.getItem('userRole') || 'admin';
   const userEmail = localStorage.getItem('userEmail') || 'admin@school.com';
-  const displayRole = userRole.charAt(0).toUpperCase() + userRole.slice(1);
+  const displayRole = userRole.toLowerCase() === 'school' ? 'Institute' : (userRole.charAt(0).toUpperCase() + userRole.slice(1));
   const displayName = userEmail.split('@')[0].toUpperCase();
 
   // ── All hooks live above any early return ──

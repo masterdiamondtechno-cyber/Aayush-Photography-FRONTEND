@@ -105,7 +105,7 @@ const Dashboard = () => {
   const fallbackSchoolName = getAuthValue('schoolName') || (getAuthValue('userEmail') || '').split('@')[0].toUpperCase();
   const schoolName = fallbackSchoolName || MOCK_STATS.schoolName;
   const userRole = getAuthValue('userRole') || 'admin';
-  const displayRole = userRole.charAt(0).toUpperCase() + userRole.slice(1);
+  const displayRole = userRole.toLowerCase() === 'school' ? 'Institute' : (userRole.charAt(0).toUpperCase() + userRole.slice(1));
 
   if (loading && !dashboardData && !needsSetup) {
     return (
@@ -205,7 +205,7 @@ const Dashboard = () => {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="font-['Cinzel'] text-3xl sm:text-4xl font-extrabold text-[#FFC629] tracking-wide">
-            {displayRole} Dashboard
+            Institute Dashboard
           </h1>
           <p className="text-sm sm:text-base text-[#F5E6BE] mt-2 font-medium">
             Welcome back, <span className="font-bold text-white">{schoolName}</span>
