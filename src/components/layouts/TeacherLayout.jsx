@@ -105,76 +105,72 @@ const TeacherLayout = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#0D0D0D]">
-      <Sidebar 
-        links={teacherLinks} 
-        onLogout={handleLogout} 
-        userName={displayName} 
-        userEmail={userEmail} 
-        initials={initials} 
-        isOpen={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
-      />
-      <div className="app-layout-content flex min-h-screen min-w-0 flex-col overflow-x-hidden">
-        <header className="sticky top-0 z-[900] h-16 sm:h-20 flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#262626] rounded-b-2xl sm:rounded-b-3xl shadow-lg shadow-black/40 min-w-0 px-2.5 sm:px-5 lg:px-6 w-full max-w-full overflow-hidden">
-          <div className="flex items-center justify-between gap-2 sm:gap-4 w-full min-w-0">
-            <div className="flex items-center gap-2 sm:gap-2.5 min-w-0 shrink-0">
-              <button 
-                className="md:hidden w-9 h-9 flex items-center justify-center text-[#FFC629] hover:bg-[#1E1E1E] rounded-xl border border-[#2A2A2A] transition shrink-0" 
-                onClick={() => setSidebarOpen(true)} 
-                title="Open Menu"
-              >
-                <BiMenu size={20} />
-              </button>
+    <div className="min-h-screen flex flex-col bg-[#0D0D0D]">
+      {/* ── 1. Full-Width Top Navbar: Spans ACROSS Sidebar & Content ── */}
+      <header className="sticky top-0 z-[1000] h-16 sm:h-20 w-full flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#262626] shadow-lg shadow-black/40 min-w-0 px-3 sm:px-6">
+        <div className="flex items-center justify-between gap-2 sm:gap-4 w-full min-w-0">
+          {/* Left: Mobile Menu Toggle + Official Brand Logo */}
+          <div className="flex items-center gap-2.5 sm:gap-4 min-w-0 shrink">
+            <button 
+              className="md:hidden w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-[#FFC629] hover:bg-[#1E1E1E] rounded-xl border border-[#2A2A2A] transition shrink-0" 
+              onClick={() => setSidebarOpen(true)} 
+              title="Open Menu"
+            >
+              <BiMenu size={20} />
+            </button>
 
-              {/* Mobile Brand Logo */}
-              <Link to="/teacher/dashboard" className="md:hidden flex items-center shrink-0">
-                <BrandLogo size="navbar" className="h-7 w-auto max-w-[110px] xs:max-w-[130px]" />
-              </Link>
+            {/* Official Brand Logo in Navbar */}
+            <Link to="/teacher/dashboard" className="flex items-center shrink-0 group" aria-label="आयुष्याची फोटोग्राफी">
+              <BrandLogo
+                size="navbar"
+                className="h-8 sm:h-11 w-auto max-w-[150px] sm:max-w-[220px] xl:max-w-[260px] transition-transform duration-200 group-hover:scale-105"
+                animated={false}
+                hoverEffect={true}
+              />
+            </Link>
 
-              {/* Desktop School Branding */}
-              <div className="hidden md:flex items-center gap-2.5 min-w-0">
-                <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-[#1A1A1A] border border-[#FFC629]/30 text-[#FFC629] text-lg sm:text-xl shadow-inner shrink-0">
-                  <BiCamera />
-                </span>
-                <div className="flex flex-col min-w-0">
-                  <div className="flex items-center gap-1.5">
-                    <h2 className="font-['Cinzel'] text-sm lg:text-base font-bold text-[#FFC629] truncate tracking-wide max-w-[190px] xl:max-w-none">
-                      {displayRole} Platform
-                    </h2>
-                    <span className="hidden xl:inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase shrink-0">
-                      Faculty
-                    </span>
-                  </div>
-                  <span className="text-[10px] text-[#8E8E93] truncate hidden 2xl:block">
-                    Ayushyachi Photography
-                  </span>
-                </div>
+            {/* Faculty Portal Tag */}
+            <span className="hidden xl:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase shrink-0">
+              Faculty Portal
+            </span>
+          </div>
+
+          {/* Right: Academic Year Selector + User Profile */}
+          <div className="flex items-center gap-2 sm:gap-3.5 shrink-0">
+            <GlobalYearSelector />
+            <div className="flex items-center gap-2 pl-1 sm:pl-3 border-l border-[#262626]">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FFC629] to-[#E0AC1B] text-black font-extrabold text-xs flex items-center justify-center shadow-sm shadow-[#FFC629]/20 shrink-0">
+                {initials}
               </div>
-            </div>
-
-            {/* Right: Academic Year Selector + User Profile (Never overflowing) */}
-            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-              <GlobalYearSelector />
-              <div className="flex items-center gap-2 pl-1 sm:pl-3 border-l border-[#262626]">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-[#FFC629] to-[#E0AC1B] text-black font-extrabold text-[11px] sm:text-xs flex items-center justify-center shadow-sm shadow-[#FFC629]/20 shrink-0">
-                  {initials}
-                </div>
-                <div className="hidden sm:flex flex-col text-left min-w-0">
-                  <span className="text-xs font-bold text-[#FFFFFF] leading-tight truncate max-w-[90px] xl:max-w-[130px]">
-                    {userName}
-                  </span>
-                  <span className="text-[10px] text-[#FFC629] uppercase tracking-wider font-semibold">
-                    {displayRole}
-                  </span>
-                </div>
+              <div className="hidden sm:flex flex-col text-left min-w-0">
+                <span className="text-xs font-bold text-[#FFFFFF] leading-tight truncate max-w-[90px] xl:max-w-[130px]">
+                  {userName}
+                </span>
+                <span className="text-[10px] text-[#FFC629] uppercase tracking-wider font-semibold">
+                  {displayRole}
+                </span>
               </div>
             </div>
           </div>
-        </header>
-        <main className="mx-auto w-full max-w-[1400px] flex-1 min-w-0 overflow-x-auto px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
-          <Outlet />
-        </main>
+        </div>
+      </header>
+
+      {/* ── 2. Workspace: Sidebar (starts below navbar) + Content Area ── */}
+      <div className="flex-1 flex min-w-0 relative">
+        <Sidebar 
+          links={teacherLinks} 
+          onLogout={handleLogout} 
+          userName={displayName} 
+          userEmail={userEmail} 
+          initials={initials} 
+          isOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+        />
+        <div className="app-layout-content flex min-h-[calc(100vh-5rem)] min-w-0 flex-1 flex-col overflow-x-hidden">
+          <main className="mx-auto w-full max-w-[1400px] flex-1 min-w-0 overflow-x-auto px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
+            <Outlet />
+          </main>
+        </div>
       </div>
     </div>
   );

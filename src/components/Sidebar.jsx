@@ -1,6 +1,5 @@
-import BrandLogo from './photography/BrandLogo';
 import { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ADMIN_SIDEBAR_LINKS } from '../data/mockData';
 import { BiLogOutCircle, BiChevronDown, BiChevronRight, BiX } from 'react-icons/bi';
 import { hasSubscriptionFeature } from '../utils/subscription';
@@ -143,38 +142,27 @@ const Sidebar = ({ links = ADMIN_SIDEBAR_LINKS, onLogout, userName, userEmail, i
         />
       )}
 
-      {/* Sidebar Panel — Modern Floating Island with Visibly Curved Borders */}
+      {/* Sidebar Panel — Starts below full-width Navbar, begins directly with Dashboard */}
       <aside
-        className={`fixed left-2.5 top-2.5 bottom-2.5 z-[1000] flex flex-col h-[calc(100dvh-1.25rem)] w-[270px] max-w-[85vw] bg-[#0A0A0A] border border-[#2E2E2E] rounded-3xl overflow-hidden shadow-2xl shadow-black/60 transition-transform duration-300 ease-in-out md:translate-x-0 ${
+        className={`fixed left-0 md:left-2.5 top-16 sm:top-20 bottom-0 md:bottom-2.5 z-[900] flex flex-col h-[calc(100dvh-4rem)] sm:h-[calc(100dvh-5rem)] w-72 md:w-[270px] max-w-[85vw] bg-[#0A0A0A] border-r md:border border-[#262626] md:rounded-2xl overflow-hidden shadow-2xl shadow-black/50 transition-transform duration-300 ease-in-out md:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        {/* ── Brand Header (Aligned cleanly with top navbar h-20 / 80px) ── */}
-        <div className="relative h-20 flex items-center justify-between px-4 border-b border-[#1E1E1E] shrink-0 bg-[#0E0E0E]">
-          <Link
-            to={adjustPath('/admin/dashboard')}
-            className="flex items-center justify-center w-full min-w-0 transition-transform duration-200 group"
-            aria-label="आयुष्याची फोटोग्राफी"
-          >
-            <BrandLogo
-              size="navbar"
-              className="max-h-12 w-auto group-hover:scale-105 transition-all duration-200"
-              animated={false}
-              hoverEffect={true}
-            />
-          </Link>
+        {/* On mobile: Small close header bar */}
+        <div className="md:hidden flex items-center justify-between px-4 py-2.5 border-b border-[#222222] bg-[#0E0E0E] shrink-0">
+          <span className="text-xs font-bold text-[#FFC629] uppercase tracking-wider">Navigation Menu</span>
           <button
-            className="md:hidden absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-[#FFC629] hover:text-white rounded-lg hover:bg-[#1E1E1E] transition shrink-0"
             onClick={onClose}
-            aria-label="Close sidebar"
+            className="w-7 h-7 flex items-center justify-center text-[#FFC629] hover:text-white rounded-lg transition"
+            aria-label="Close menu"
           >
-            <BiX size={20} />
+            <BiX size={18} />
           </button>
         </div>
 
-        {/* ── Navigation (Solid Space between menu items: "khula khula") ── */}
-        <nav className="flex-1 overflow-y-auto py-6 px-4" style={{ scrollbarWidth: 'thin', scrollbarColor: '#2A2A2A transparent' }}>
-          <ul className="space-y-3">
+        {/* ── Navigation (Starts directly from Dashboard option) ── */}
+        <nav className="flex-1 overflow-y-auto py-3 px-3 sm:px-4" style={{ scrollbarWidth: 'thin', scrollbarColor: '#2A2A2A transparent' }}>
+          <ul className="space-y-2.5">
             {visibleLinks.map(renderLink)}
           </ul>
         </nav>

@@ -146,115 +146,107 @@ const AdminLayout = () => {
   const nextStep = activeIndex !== -1 && activeIndex < WIZARD_STEPS.length - 1 ? WIZARD_STEPS[activeIndex + 1] : null;
 
   return (
-    <div className="min-h-dvh bg-[#0D0D0D]">
-      {/* Sidebar: fixed on the left (w-72 = 288px) */}
-      <Sidebar
-        isOpen={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
-        onLogout={handleLogout}
-        userName={displayName}
-        userEmail={userEmail}
-        initials={initials}
-      />
+    <div className="min-h-dvh flex flex-col bg-[#0D0D0D]">
+      {/* ── 1. Full-Width Top Navbar: Spans ACROSS Sidebar & Content ── */}
+      <header className="sticky top-0 z-[1000] h-16 sm:h-20 w-full flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#262626] shadow-lg shadow-black/40 min-w-0 px-3 sm:px-6">
+        <div className="flex items-center justify-between gap-2 sm:gap-4 w-full min-w-0">
+          {/* Left: Mobile Menu Toggle + Official Brand Logo */}
+          <div className="flex items-center gap-2.5 sm:gap-4 min-w-0 shrink">
+            <button
+              className="md:hidden w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-[#FFC629] hover:bg-[#1E1E1E] rounded-xl border border-[#2A2A2A] transition shrink-0"
+              onClick={() => setSidebarOpen(true)}
+              title="Open Menu"
+              aria-label="Open menu"
+            >
+              <BiMenu size={20} />
+            </button>
 
-      {/* Content area: md+ pe sidebar ke RIGHT me shuru hota hai */}
-      <div className="app-layout-content flex min-h-dvh min-w-0 flex-col overflow-x-hidden">
-        <header className="sticky top-0 z-[900] h-16 sm:h-20 flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#262626] rounded-b-2xl sm:rounded-b-3xl shadow-lg shadow-black/40 min-w-0 px-2.5 sm:px-5 lg:px-6 w-full max-w-full overflow-hidden">
-          <div className="flex items-center justify-between gap-1.5 sm:gap-4 w-full min-w-0">
-            {/* Left: Hamburger (mobile) + Branding */}
-            <div className="flex items-center gap-2 min-w-0 shrink">
-              <button
-                className="md:hidden w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-[#FFC629] hover:bg-[#1E1E1E] rounded-xl border border-[#2A2A2A] transition shrink-0"
-                onClick={() => setSidebarOpen(true)}
-                title="Open Menu"
-                aria-label="Open menu"
-              >
-                <BiMenu size={18} />
-              </button>
+            {/* Official Brand Logo in Navbar */}
+            <Link to={baseRoute + '/dashboard'} className="flex items-center shrink-0 group" aria-label="आयुष्याची फोटोग्राफी">
+              <BrandLogo
+                size="navbar"
+                className="h-8 sm:h-11 w-auto max-w-[150px] sm:max-w-[220px] xl:max-w-[260px] transition-transform duration-200 group-hover:scale-105"
+                animated={false}
+                hoverEffect={true}
+              />
+            </Link>
 
-              {/* Mobile: Brand Logo */}
-              <Link to={baseRoute + '/dashboard'} className="md:hidden flex items-center shrink-0">
-                <BrandLogo size="navbar" className="h-7 w-auto max-w-[110px] xs:max-w-[130px]" />
-              </Link>
+            {/* Official Portal Tag */}
+            <span className="hidden xl:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase shrink-0">
+              Official Portal
+            </span>
+          </div>
 
-              {/* Desktop: Camera Icon + School Name */}
-              <div className="hidden md:flex items-center gap-2.5 min-w-0">
-                <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-[#1A1A1A] border border-[#FFC629]/30 text-[#FFC629] text-lg sm:text-xl shadow-inner shrink-0">
-                  <BiCamera />
+          {/* Right: Academic Year Selector + User Profile */}
+          <div className="flex items-center gap-2 sm:gap-3.5 shrink-0">
+            {/* Academic Year in Navbar */}
+            <GlobalYearSelector />
+
+            {/* User Info */}
+            <div className="flex items-center gap-2 pl-1 sm:pl-3 border-l border-[#262626]">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#FFC629] to-[#E0AC1B] text-black font-extrabold text-xs flex items-center justify-center shadow-sm shadow-[#FFC629]/20 shrink-0" title={displayName}>
+                {initials}
+              </div>
+              <div className="hidden sm:flex flex-col text-left min-w-0">
+                <span className="text-xs font-bold text-[#FFFFFF] leading-tight truncate max-w-[90px] xl:max-w-[130px]">
+                  {displayName}
                 </span>
-                <div className="flex flex-col min-w-0">
-                  <div className="flex items-center gap-1.5">
-                    <h2 className="font-['Cinzel'] text-sm lg:text-base font-bold text-[#FFC629] truncate tracking-wide max-w-[190px] xl:max-w-none">
-                      {schoolName}
-                    </h2>
-                    <span className="hidden xl:inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase shrink-0">
-                      Official
-                    </span>
-                  </div>
-                  <span className="text-[10px] text-[#8E8E93] truncate hidden 2xl:block">
-                    Ayushyachi Photography
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Academic Year Selector + User Profile (Never overflowing) */}
-            <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
-              {/* Academic Year in Navbar */}
-              <GlobalYearSelector />
-
-              {/* User Info (compact on mobile) */}
-              <div className="flex items-center gap-2 pl-1 sm:pl-2">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-[#FFC629] to-[#E0AC1B] text-black font-extrabold text-[11px] sm:text-xs flex items-center justify-center shadow-sm shadow-[#FFC629]/20 shrink-0" title={displayName}>
-                  {initials}
-                </div>
-                <div className="hidden sm:flex flex-col text-left min-w-0">
-                  <span className="text-xs font-bold text-[#FFFFFF] leading-tight truncate max-w-[90px] xl:max-w-[130px]">
-                    {displayName}
-                  </span>
-                  <span className="text-[10px] text-[#FFC629] uppercase tracking-wider font-semibold">
-                    {displayRole}
-                  </span>
-                </div>
+                <span className="text-[10px] text-[#FFC629] uppercase tracking-wider font-semibold">
+                  {displayRole}
+                </span>
               </div>
             </div>
           </div>
-        </header>
+        </div>
+      </header>
 
-        {/* ── Master Setup Banner ── */}
-        {showSetupBanner && (
-          <div className="sticky top-20 z-[850] bg-[#161616] border-b border-[#2A2A2A]">
-            <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 px-4 sm:px-5 py-2">
-              <div className="w-6 h-6 bg-white/20 rounded-md flex items-center justify-center shrink-0">
-                <BiWrench className="text-white text-xs" />
-              </div>
-              <div className="flex-1 min-w-0">
-                <strong className="text-white text-xs font-medium block truncate">
-                  Complete your school setup to unlock all features
-                </strong>
-              </div>
-              <div className="flex items-center gap-2 shrink-0">
-                <button
-                  className="inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-[#FFC629] to-[#FFB703] text-black rounded-lg font-extrabold text-xs hover:brightness-110 transition shadow-sm"
-                  onClick={() => navigate(`${baseRoute}/master-menu`)}
-                >
-                  Setup Wizard <BiChevronRight className="text-xs" />
-                </button>
-                <button
-                  className="w-6 h-6 bg-white/20 hover:bg-white/30 text-white rounded-md flex items-center justify-center transition"
-                  onClick={handleDismissBanner}
-                  title="Dismiss"
-                >
-                  <BiX size={14} />
-                </button>
-              </div>
+      {/* ── 2. Master Setup Banner ── */}
+      {showSetupBanner && (
+        <div className="sticky top-16 sm:top-20 z-[950] bg-[#161616] border-b border-[#2A2A2A]">
+          <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 px-4 sm:px-5 py-2">
+            <div className="w-6 h-6 bg-white/20 rounded-md flex items-center justify-center shrink-0">
+              <BiWrench className="text-white text-xs" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <strong className="text-white text-xs font-medium block truncate">
+                Complete your school setup to unlock all features
+              </strong>
+            </div>
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                className="inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-[#FFC629] to-[#FFB703] text-black rounded-lg font-extrabold text-xs hover:brightness-110 transition shadow-sm"
+                onClick={() => navigate(`${baseRoute}/master-menu`)}
+              >
+                Setup Wizard <BiChevronRight className="text-xs" />
+              </button>
+              <button
+                className="w-6 h-6 bg-white/20 hover:bg-white/30 text-white rounded-md flex items-center justify-center transition"
+                onClick={handleDismissBanner}
+                title="Dismiss"
+              >
+                <BiX size={14} />
+              </button>
             </div>
           </div>
-        )}
+        </div>
+      )}
 
-        <main className="flex-1 min-w-0 px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7 pb-28 overflow-x-hidden">
-          <Outlet />
-        </main>
+      {/* ── 3. Workspace: Sidebar (starts below navbar) + Content Area ── */}
+      <div className="flex-1 flex min-w-0 relative">
+        <Sidebar
+          isOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+          onLogout={handleLogout}
+          userName={displayName}
+          userEmail={userEmail}
+          initials={initials}
+        />
+
+        {/* Content area: md+ pe sidebar ke RIGHT me shuru hota hai */}
+        <div className="app-layout-content flex min-h-[calc(100dvh-5rem)] min-w-0 flex-1 flex-col overflow-x-hidden">
+          <main className="flex-1 min-w-0 px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7 pb-28 overflow-x-hidden">
+            <Outlet />
+          </main>
 
         {/* Sticky Wizard Navigation Bar */}
         {showWizardNav && (
@@ -305,6 +297,7 @@ const AdminLayout = () => {
             </div>
           </div>
         )}
+        </div>
       </div>
     </div>
   );
