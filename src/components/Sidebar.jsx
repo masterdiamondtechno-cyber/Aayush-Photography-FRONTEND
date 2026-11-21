@@ -2,7 +2,7 @@ import BrandLogo from './photography/BrandLogo';
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { ADMIN_SIDEBAR_LINKS } from '../data/mockData';
-import { BiLogOutCircle, BiChevronDown, BiChevronRight, BiX, BiCamera } from 'react-icons/bi';
+import { BiLogOutCircle, BiChevronDown, BiChevronRight, BiX } from 'react-icons/bi';
 import { hasSubscriptionFeature } from '../utils/subscription';
 
 /**
@@ -149,23 +149,22 @@ const Sidebar = ({ links = ADMIN_SIDEBAR_LINKS, onLogout, userName, userEmail, i
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        {/* ── Sidebar Header: Separate Navigation Panel ── */}
-        <div className="relative h-16 sm:h-20 flex items-center justify-between px-4 border-b border-[#222222] shrink-0 bg-[#0E0E0E]">
-          <div className="flex items-center gap-2.5 min-w-0">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1A1A1A] border border-[#FFC629]/30 text-[#FFC629] text-lg shadow-inner shrink-0">
-              <BiCamera />
-            </span>
-            <div className="flex flex-col min-w-0">
-              <span className="font-['Cinzel'] text-xs sm:text-sm font-bold text-[#FFC629] tracking-wider uppercase truncate">
-                Institute Menu
-              </span>
-              <span className="text-[10px] text-[#8E8E93] truncate">
-                Control Panel
-              </span>
-            </div>
-          </div>
+        {/* ── Brand Header (Aligned cleanly with top navbar h-20 / 80px) ── */}
+        <div className="relative h-20 flex items-center justify-between px-4 border-b border-[#1E1E1E] shrink-0 bg-[#0E0E0E]">
+          <Link
+            to={adjustPath('/admin/dashboard')}
+            className="flex items-center justify-center w-full min-w-0 transition-transform duration-200 group"
+            aria-label="आयुष्याची फोटोग्राफी"
+          >
+            <BrandLogo
+              size="navbar"
+              className="max-h-12 w-auto group-hover:scale-105 transition-all duration-200"
+              animated={false}
+              hoverEffect={true}
+            />
+          </Link>
           <button
-            className="md:hidden w-8 h-8 flex items-center justify-center text-[#FFC629] hover:text-white rounded-lg hover:bg-[#1E1E1E] transition shrink-0"
+            className="md:hidden absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center text-[#FFC629] hover:text-white rounded-lg hover:bg-[#1E1E1E] transition shrink-0"
             onClick={onClose}
             aria-label="Close sidebar"
           >

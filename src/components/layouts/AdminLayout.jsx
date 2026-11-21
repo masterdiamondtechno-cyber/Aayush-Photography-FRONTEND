@@ -161,8 +161,8 @@ const AdminLayout = () => {
       <div className="app-layout-content flex min-h-dvh min-w-0 flex-col overflow-x-hidden">
         <header className="sticky top-0 z-[900] h-16 sm:h-20 flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#262626] rounded-b-2xl sm:rounded-b-3xl shadow-lg shadow-black/40 min-w-0 px-2.5 sm:px-5 lg:px-6 w-full max-w-full overflow-hidden">
           <div className="flex items-center justify-between gap-1.5 sm:gap-4 w-full min-w-0">
-            {/* Left: Hamburger (mobile) + Brand Logo in Navbar */}
-            <div className="flex items-center gap-2 sm:gap-3.5 min-w-0 shrink">
+            {/* Left: Hamburger (mobile) + Branding */}
+            <div className="flex items-center gap-2 min-w-0 shrink">
               <button
                 className="md:hidden w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-[#FFC629] hover:bg-[#1E1E1E] rounded-xl border border-[#2A2A2A] transition shrink-0"
                 onClick={() => setSidebarOpen(true)}
@@ -172,20 +172,30 @@ const AdminLayout = () => {
                 <BiMenu size={18} />
               </button>
 
-              {/* Official Brand Logo in Navbar */}
-              <Link to={baseRoute + '/dashboard'} className="flex items-center shrink-0 group" aria-label="आयुष्याची फोटोग्राफी">
-                <BrandLogo
-                  size="navbar"
-                  className="h-8 sm:h-10 w-auto max-w-[130px] sm:max-w-[190px] xl:max-w-[230px] transition-transform duration-200 group-hover:scale-105"
-                  animated={false}
-                  hoverEffect={true}
-                />
+              {/* Mobile: Brand Logo */}
+              <Link to={baseRoute + '/dashboard'} className="md:hidden flex items-center shrink-0">
+                <BrandLogo size="navbar" className="h-7 w-auto max-w-[110px] xs:max-w-[130px]" />
               </Link>
 
-              {/* Official Portal Tag */}
-              <span className="hidden xl:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase shrink-0">
-                Official Portal
-              </span>
+              {/* Desktop: Camera Icon + School Name */}
+              <div className="hidden md:flex items-center gap-2.5 min-w-0">
+                <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-[#1A1A1A] border border-[#FFC629]/30 text-[#FFC629] text-lg sm:text-xl shadow-inner shrink-0">
+                  <BiCamera />
+                </span>
+                <div className="flex flex-col min-w-0">
+                  <div className="flex items-center gap-1.5">
+                    <h2 className="font-['Cinzel'] text-sm lg:text-base font-bold text-[#FFC629] truncate tracking-wide max-w-[190px] xl:max-w-none">
+                      {schoolName}
+                    </h2>
+                    <span className="hidden xl:inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase shrink-0">
+                      Official
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-[#8E8E93] truncate hidden 2xl:block">
+                    Ayushyachi Photography
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* Right: Academic Year Selector + User Profile (Never overflowing) */}

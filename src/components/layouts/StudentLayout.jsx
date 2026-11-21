@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Outlet, NavLink, useNavigate, useLocation, Navigate, Link } from 'react-router-dom';
+import { Outlet, NavLink, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import {
   BiGridAlt, BiHomeAlt, BiCalendar, BiBookOpen, BiVideo, BiPlayCircle, BiBus,
   BiLogOut, BiSearch, BiUser, BiCalendarCheck, BiMenu, BiX,
@@ -8,7 +8,6 @@ import { logout } from '../../api/api';
 import { clearAuthStorage, isAuthenticated, getDashboardURL } from '../../utils/auth';
 import { StudentSearchProvider, useStudentSearch } from '../../contexts/StudentSearchContext';
 import GlobalYearSelector from './GlobalYearSelector';
-import BrandLogo from '../photography/BrandLogo';
 
 const getInitials = (name) => {
   if (!name) return 'ST';
@@ -188,17 +187,14 @@ const StudentLayoutInner = () => {
       {/* Content area: md+ pe sidebar ke RIGHT me shuru hota hai */}
       <div className="app-layout-content flex min-h-dvh min-w-0 flex-col overflow-x-hidden">
         <header className="sticky top-0 z-[900] flex h-16 sm:h-20 items-center justify-between gap-2 sm:gap-3 border-b border-[#262626] rounded-b-2xl sm:rounded-b-3xl bg-[#111111]/95 backdrop-blur-md px-2.5 sm:px-4 lg:px-6 max-w-full overflow-hidden">
-          <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+          <div className="flex items-center gap-3 flex-1 min-w-0">
             <button
-              className="md:hidden w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-[#FFC629] hover:bg-[#1A1A1A] rounded-xl border border-[#2A2A2A] transition shrink-0"
+              className="md:hidden w-10 h-10 flex items-center justify-center text-[#A0A0A0] hover:bg-[#1A1A1A] hover:text-[#E0E0E0] rounded-lg transition shrink-0"
               onClick={() => setSidebarOpen(true)}
               aria-label="Open menu"
             >
-              <BiMenu size={20} />
+              <BiMenu size={22} />
             </button>
-            <Link to="/student/dashboard" className="flex items-center shrink-0 group" aria-label="आयुष्याची फोटोग्राफी">
-              <BrandLogo size="navbar" className="h-7 sm:h-9 w-auto max-w-[120px] sm:max-w-[180px] transition-transform duration-200 group-hover:scale-105" animated={false} hoverEffect={true} />
-            </Link>
             {!hideSearchBar && (
               <div className="relative flex items-center flex-1 max-w-xs sm:max-w-md">
                 <BiSearch className="absolute left-3 text-[#606060] text-lg" />
