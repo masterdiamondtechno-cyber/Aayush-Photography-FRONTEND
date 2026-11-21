@@ -124,9 +124,9 @@ const StudentLayoutInner = () => {
         />
       )}
 
-      {/* Sidebar: fixed on the left (w-72 = 288px) */}
+      {/* Sidebar: fixed on the left (w-72 = 288px) with curved right border */}
       <aside
-        className={`fixed left-0 top-0 z-[1000] flex h-dvh w-72 max-w-[85vw] flex-col border-r border-[#1E1E1E] bg-[#0A0A0A] transition-transform duration-300 ease-in-out md:translate-x-0 ${
+        className={`fixed left-0 top-0 z-[1000] flex h-dvh w-72 max-w-[85vw] flex-col border-r border-[#262626] rounded-r-2xl sm:rounded-r-3xl overflow-hidden bg-[#0A0A0A] transition-transform duration-300 ease-in-out md:translate-x-0 ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -186,7 +186,7 @@ const StudentLayoutInner = () => {
 
       {/* Content area: md+ pe sidebar ke RIGHT me shuru hota hai */}
       <div className="app-layout-content flex min-h-dvh min-w-0 flex-col overflow-x-hidden">
-        <header className="sticky top-0 z-[900] flex h-16 sm:h-20 items-center justify-between gap-2 sm:gap-3 border-b border-[#1E1E1E] bg-[#111111] px-2.5 sm:px-4 lg:px-6 max-w-full overflow-hidden">
+        <header className="sticky top-0 z-[900] flex h-16 sm:h-20 items-center justify-between gap-2 sm:gap-3 border-b border-[#262626] rounded-b-2xl sm:rounded-b-3xl bg-[#111111]/95 backdrop-blur-md px-2.5 sm:px-4 lg:px-6 max-w-full overflow-hidden">
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <button
               className="md:hidden w-10 h-10 flex items-center justify-center text-[#A0A0A0] hover:bg-[#1A1A1A] hover:text-[#E0E0E0] rounded-lg transition shrink-0"

@@ -639,3 +639,24 @@ svg[class*="calendar"],
   color: #FFE066 !important;
 }
 
+/* ==========================================================================
+   CURVED BORDER LINES FOR SIDEBAR & NAVBAR ONLY
+   Requested: "border ki line ko thoda sa curve kr do sidebar aur navbar ki sirf"
+   ========================================================================== */
+.portal-sidebar,
+aside.portal-sidebar,
+aside[class*="fixed"] {
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+  border-right: 1.5px solid #262626 !important;
+}
+
+.portal-topbar,
+.app-layout-content > header,
+header[class*="sticky"] {
+  border-bottom-left-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+  border-bottom: 1.5px solid #262626 !important;
+}
+
+

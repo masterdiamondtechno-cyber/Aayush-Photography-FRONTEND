@@ -143,9 +143,9 @@ const Sidebar = ({ links = ADMIN_SIDEBAR_LINKS, onLogout, userName, userEmail, i
         />
       )}
 
-      {/* Sidebar Panel — fixed, full height, width 18rem */}
+      {/* Sidebar Panel — fixed, full height, width 18rem with subtly curved right border */}
       <aside
-        className={`fixed left-0 top-0 z-[1000] flex flex-col h-screen w-72 bg-[#0A0A0A] border-r border-[#1E1E1E] shadow-2xl shadow-black/50 transition-transform duration-300 ease-in-out md:translate-x-0 ${
+        className={`fixed left-0 top-0 z-[1000] flex flex-col h-screen w-72 bg-[#0A0A0A] border-r border-[#262626] rounded-r-2xl sm:rounded-r-3xl overflow-hidden shadow-2xl shadow-black/50 transition-transform duration-300 ease-in-out md:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >

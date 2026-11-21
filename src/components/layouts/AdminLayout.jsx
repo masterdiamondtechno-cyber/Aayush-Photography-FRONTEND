@@ -159,7 +159,7 @@ const AdminLayout = () => {
 
       {/* Content area: md+ pe sidebar ke RIGHT me shuru hota hai */}
       <div className="app-layout-content flex min-h-dvh min-w-0 flex-col overflow-x-hidden">
-        <header className="sticky top-0 z-[900] h-16 sm:h-20 flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#1E1E1E] shadow-lg shadow-black/40 min-w-0 px-2.5 sm:px-5 lg:px-6 w-full max-w-full overflow-hidden">
+        <header className="sticky top-0 z-[900] h-16 sm:h-20 flex items-center bg-[#111111]/95 backdrop-blur-md border-b border-[#262626] rounded-b-2xl sm:rounded-b-3xl shadow-lg shadow-black/40 min-w-0 px-2.5 sm:px-5 lg:px-6 w-full max-w-full overflow-hidden">
           <div className="flex items-center justify-between gap-1.5 sm:gap-4 w-full min-w-0">
             {/* Left: Hamburger (mobile) + Branding */}
             <div className="flex items-center gap-2 min-w-0 shrink">
