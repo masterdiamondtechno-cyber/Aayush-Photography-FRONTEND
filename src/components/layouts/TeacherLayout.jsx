@@ -127,30 +127,20 @@ const TeacherLayout = () => {
                 <BiMenu size={20} />
               </button>
 
-              {/* Mobile Brand Logo */}
-              <Link to="/teacher/dashboard" className="md:hidden flex items-center shrink-0">
-                <BrandLogo size="navbar" className="h-7 w-auto max-w-[110px] xs:max-w-[130px]" />
+              {/* Brand Logo in Navbar */}
+              <Link to="/teacher/dashboard" className="flex items-center shrink-0 group" aria-label="आयुष्याची फोटोग्राफी">
+                <BrandLogo
+                  size="navbar"
+                  className="h-8 sm:h-10 w-auto max-w-[130px] sm:max-w-[190px] xl:max-w-[230px] transition-transform duration-200 group-hover:scale-105"
+                  animated={false}
+                  hoverEffect={true}
+                />
               </Link>
 
-              {/* Desktop School Branding */}
-              <div className="hidden md:flex items-center gap-2.5 min-w-0">
-                <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-[#1A1A1A] border border-[#FFC629]/30 text-[#FFC629] text-lg sm:text-xl shadow-inner shrink-0">
-                  <BiCamera />
-                </span>
-                <div className="flex flex-col min-w-0">
-                  <div className="flex items-center gap-1.5">
-                    <h2 className="font-['Cinzel'] text-sm lg:text-base font-bold text-[#FFC629] truncate tracking-wide max-w-[190px] xl:max-w-none">
-                      {displayRole} Platform
-                    </h2>
-                    <span className="hidden xl:inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase shrink-0">
-                      Faculty
-                    </span>
-                  </div>
-                  <span className="text-[10px] text-[#8E8E93] truncate hidden 2xl:block">
-                    Ayushyachi Photography
-                  </span>
-                </div>
-              </div>
+              {/* Faculty Portal Tag */}
+              <span className="hidden xl:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#FFC629]/15 text-[#FFC629] border border-[#FFC629]/30 tracking-wider uppercase shrink-0">
+                Faculty Portal
+              </span>
             </div>
 
             {/* Right: Academic Year Selector + User Profile (Never overflowing) */}
